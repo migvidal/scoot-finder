@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-      <h1>Find your perfect scooter</h1>
+      <h1 className='text-4xl font-bold'>Find your perfect scooter<span className='text-yellow-600'>!</span></h1>
       <a href="#" className='text-blue-600'>Link</a>
     </>
   )

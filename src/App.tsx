@@ -1,13 +1,13 @@
-import { useState } from 'react'
+import RoundedButton from './RoundedButton'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <h1 className='text-4xl font-bold'>Find your perfect scooter<span className='text-yellow-600'>!</span></h1>
-      <a href="#" className='text-blue-600'>Link</a>
-    </>
+    <div className='flex flex-col items-center'>
+      <h1 className='text-6xl font-bold text-center px-4'>Find your perfect scooter<span className='text-yellow-600'>!</span></h1>
+      <div className='py-10'></div>
+      <RoundedButton>Start the survey</RoundedButton>
+    </div>
   )
 }
 

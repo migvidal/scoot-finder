@@ -9,10 +9,13 @@ import RoundedButton from "./RoundedButton";
 import HomeScreen from "./screens/HomeScreen";
 import WeightScreen from "./screens/WeightScreen";
 
+const WEIGHT_SEGMENT = "/weight";
+const HILLS_SEGMENT = "/hills";
+
 function App() {
   const navigator = useNavigate();
   function submitWeightAndNavigate(weight: number) {
-    navigator("/hills");
+    navigator(HILLS_SEGMENT);
   }
   return (
     <BrowserRouter>
@@ -25,7 +28,7 @@ function App() {
           element={
             <HomeScreen>
               <Link
-                to="/weight"
+                to={WEIGHT_SEGMENT}
                 className="text-yellow-600 dark:text-yellow-300"
               >
                 Begin
@@ -34,7 +37,11 @@ function App() {
           }
         />
         <Route
-          path="/weight"
+          path={WEIGHT_SEGMENT}
+          element={<WeightScreen onSubmit={submitWeightAndNavigate} />}
+        ></Route>
+        <Route
+          path={HILLS_SEGMENT}
           element={<WeightScreen onSubmit={submitWeightAndNavigate} />}
         ></Route>
       </Routes>

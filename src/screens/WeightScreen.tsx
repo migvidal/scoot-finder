@@ -1,30 +1,33 @@
 import { ChangeEvent, ChangeEventHandler, FormEvent, useState } from "react";
 
-function WeightScreen() {
+function WeightScreen({ onSubmit }: { onSubmit: (weight: number) => any }) {
   const [weight, setWeight] = useState(0);
   function onFormSubmit(e: FormEvent) {
     e.preventDefault();
+    onSubmit(weight);
   }
-  function onWeightRangeChange(e: React.ChangeEvent<HTMLInputElement>) {
+  function onWeightChange(e: React.ChangeEvent<HTMLInputElement>) {
     const currentValue = e.currentTarget.value;
     setWeight(Number(currentValue));
   }
   return (
     <div className="flex flex-col items-center">
-      <h1 className="text-6xl font-bold text-center px-4">
+      <h1 className="text-3xl font-bold text-center px-4">
         How much do you weigh?
       </h1>
-      <p>{weight}</p>
-      <form onSubmit={onFormSubmit}>
+      <form className="m-10" onSubmit={onFormSubmit}>
         <input
-          type="range"
-          name="weight-range"
-          id="weight-range"
-          value={weight + "kg"}
-          onChange={onWeightRangeChange}
+          className="border rounded-lg p-2"
+          type="number"
+          name="weight-input"
+          id="weight-input"
+          value={weight}
+          onChange={onWeightChange}
           min="20"
           max="200"
         />
+        kg
+        <button type="submit">Next</button>
       </form>
     </div>
   );

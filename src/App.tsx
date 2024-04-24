@@ -1,9 +1,19 @@
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Link,
+  Route,
+  Routes,
+  useNavigate,
+} from "react-router-dom";
 import RoundedButton from "./RoundedButton";
 import HomeScreen from "./screens/HomeScreen";
 import WeightScreen from "./screens/WeightScreen";
 
 function App() {
+  const navigator = useNavigate();
+  function submitWeightAndNavigate(weight: number) {
+    navigator("/hills");
+  }
   return (
     <BrowserRouter>
       <div>
@@ -16,14 +26,17 @@ function App() {
             <HomeScreen>
               <Link
                 to="/weight"
-                className="rounded-md rounded-tr-2xl rounded-br-2xl bg-yellow-300 dark:bg-yellow-600 px-4 py-2"
+                className="text-yellow-600 dark:text-yellow-300"
               >
                 Begin
               </Link>
             </HomeScreen>
           }
         />
-        <Route path="/weight" element={<WeightScreen />}></Route>
+        <Route
+          path="/weight"
+          element={<WeightScreen onSubmit={submitWeightAndNavigate} />}
+        ></Route>
       </Routes>
     </BrowserRouter>
   );

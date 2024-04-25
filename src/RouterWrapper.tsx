@@ -7,8 +7,14 @@ function RouterWrapper() {
   const navigate = useNavigate();
 
   const ROOT_SEGMENT = "/";
+
   const WEIGHT_SEGMENT = "/weight";
+  const WEIGHT_PARAM_KEY = "weight";
+
   const HILLY_SEGMENT = "/hilly";
+  const IS_HILLY_PARAM_KEY = "isHilly";
+  
+  const ROAD_STATE_SEGMENT = "/road-state";
 
   return (
     <>
@@ -32,13 +38,20 @@ function RouterWrapper() {
         <Route
           path={WEIGHT_SEGMENT}
           element={
-            <WeightScreen onNavigate={(weight) => navigate(HILLY_SEGMENT)} />
+            <WeightScreen
+              onNavigate={(weight) => {
+                // save to common state object
+                navigate(HILLY_SEGMENT + "?" + WEIGHT_PARAM_KEY + "=" + weight);
+              }}
+            />
           }
         ></Route>
         <Route
           path={HILLY_SEGMENT}
           element={
-            <HillyScreen onNavigate={(isHilly) => navigate(ROOT_SEGMENT)} />
+            <HillyScreen
+              onNavigate={(isHilly) => navigate(ROAD_STATE_SEGMENT)}
+            />
           }
         ></Route>
       </Routes>

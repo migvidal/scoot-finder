@@ -1,17 +1,13 @@
 import { FormEvent, useState } from "react";
-import { useLocation } from "react-router-dom";
 
 function WeightScreen({
   onNavigate,
 }: {
   onNavigate: (weight: number) => any;
 }) {
-  const location = useLocation();
   const [weight, setWeight] = useState(0);
   function onFormSubmit(e: FormEvent) {
     e.preventDefault();
-    console.log("Location");
-    console.log(location);
     onNavigate(weight);
   }
   function onWeightChange(e: React.ChangeEvent<HTMLInputElement>) {

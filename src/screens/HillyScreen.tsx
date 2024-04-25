@@ -1,5 +1,4 @@
 import { FormEvent, useState } from "react";
-import { NavigateFunction } from "react-router-dom";
 
 function HillyScreen({
   onNavigate,
@@ -19,6 +18,7 @@ function HillyScreen({
       <h1 className="text-3xl font-bold text-center px-4">
         Do you live in a hilly area?
       </h1>
+      <p>{}</p>
       <form onSubmit={onFormSubmit}>
         <input
           type="radio"

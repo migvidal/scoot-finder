@@ -2,6 +2,7 @@ import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import HillyScreen from "./screens/HillyScreen";
 import WeightScreen from "./screens/WeightScreen";
+import { currentAnswers } from "./AnswersState";
 
 function RouterWrapper() {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ function RouterWrapper() {
 
   const HILLY_SEGMENT = "/hilly";
   const IS_HILLY_PARAM_KEY = "isHilly";
-  
+
   const ROAD_STATE_SEGMENT = "/road-state";
 
   return (
@@ -40,7 +41,7 @@ function RouterWrapper() {
           element={
             <WeightScreen
               onNavigate={(weight) => {
-                // save to common state object
+                currentAnswers.riderWeight = weight;
                 navigate(HILLY_SEGMENT + "?" + WEIGHT_PARAM_KEY + "=" + weight);
               }}
             />
@@ -50,7 +51,12 @@ function RouterWrapper() {
           path={HILLY_SEGMENT}
           element={
             <HillyScreen
-              onNavigate={(isHilly) => navigate(ROAD_STATE_SEGMENT)}
+              onNavigate={(isHilly) => {
+                currentAnswers.hillyArea = isHilly;
+                navigate(
+                  ROAD_STATE_SEGMENT + "?" + IS_HILLY_PARAM_KEY + "=" + isHilly
+                );
+              }}
             />
           }
         ></Route>

@@ -3,6 +3,8 @@ import HomeScreen from "./screens/HomeScreen";
 import HillyScreen from "./screens/HillyScreen";
 import WeightScreen from "./screens/WeightScreen";
 import { currentAnswers } from "./AnswersState";
+import RoadStateScreen from "./screens/RoadStateScreen";
+import SpeedLimitScreen from "./screens/SpeedLimitScreen";
 
 function RouterWrapper() {
   const navigate = useNavigate();
@@ -16,6 +18,12 @@ function RouterWrapper() {
   const IS_HILLY_PARAM_KEY = "isHilly";
 
   const ROAD_STATE_SEGMENT = "/road-state";
+  const ROAD_STATE_PARAM_KEY = "roadBumpy";
+
+  const SPEED_LIMIT_SEGMENT = "/speed-limit";
+  const SPEED_LIMIT_PARAM_KEY = "speedLimit";
+
+
 
   return (
     <>
@@ -42,6 +50,7 @@ function RouterWrapper() {
             <WeightScreen
               onNavigate={(weight) => {
                 currentAnswers.riderWeight = weight;
+                console.log(currentAnswers);
                 navigate(HILLY_SEGMENT + "?" + WEIGHT_PARAM_KEY + "=" + weight);
               }}
             />
@@ -53,9 +62,40 @@ function RouterWrapper() {
             <HillyScreen
               onNavigate={(isHilly) => {
                 currentAnswers.hillyArea = isHilly;
+                console.log(currentAnswers);
                 navigate(
                   ROAD_STATE_SEGMENT + "?" + IS_HILLY_PARAM_KEY + "=" + isHilly
                 );
+              }}
+            />
+          }
+        ></Route>
+        <Route
+          path={ROAD_STATE_SEGMENT}
+          element={
+            <RoadStateScreen
+              onNavigate={(bumpyRoads) => {
+                currentAnswers.bumpyRoads = bumpyRoads;
+                console.log(currentAnswers);
+                navigate(
+                  SPEED_LIMIT_SEGMENT +
+                    "?" +
+                    ROAD_STATE_PARAM_KEY +
+                    "=" +
+                    bumpyRoads
+                );
+              }}
+            />
+          }
+        ></Route>
+        <Route
+          path={SPEED_LIMIT_SEGMENT}
+          element={
+            <SpeedLimitScreen
+              onNavigate={(wantedSpeedLimit) => {
+                currentAnswers.wantedSpeedLimit = wantedSpeedLimit;
+                console.log(currentAnswers);
+                // TODO navigate
               }}
             />
           }

@@ -11,9 +11,8 @@ function HillyScreen({
     e.preventDefault();
     onNavigate(isHilly);
   }
-  function onHillyChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const currentValue = e.currentTarget.value;
-    console.log(currentValue);
+  function onHillyChange(newIsHilly: boolean) {
+    setIsHilly(newIsHilly);
   }
   return (
     <div className="flex flex-col items-center">
@@ -26,7 +25,7 @@ function HillyScreen({
           name="radio-hilly"
           id="radio-hilly-yes"
           checked={isHilly}
-          onChange={onHillyChange}
+          onChange={() => onHillyChange(true)}
         />
         <label htmlFor="radio-hilly-yes">Yes</label>
         <input
@@ -34,9 +33,10 @@ function HillyScreen({
           name="radio-hilly"
           id="radio-hilly-no"
           checked={!isHilly}
-          onChange={onHillyChange}
+          onChange={() => onHillyChange(false)}
         />
         <label htmlFor="radio-hilly-no">No</label>
+        <button type="submit">Next</button>
       </form>
     </div>
   );

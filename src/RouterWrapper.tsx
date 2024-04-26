@@ -5,6 +5,7 @@ import WeightScreen from "./screens/WeightScreen";
 import { currentAnswers } from "./AnswersState";
 import RoadStateScreen from "./screens/RoadStateScreen";
 import SpeedLimitScreen from "./screens/SpeedLimitScreen";
+import { URLBuilder } from "./Utils";
 
 function RouterWrapper() {
   const navigate = useNavigate();
@@ -23,7 +24,14 @@ function RouterWrapper() {
   const SPEED_LIMIT_SEGMENT = "/speed-limit";
   const SPEED_LIMIT_PARAM_KEY = "speedLimit";
 
+  const RANGE_SEGMENT = "/range";
+  const RANGE_PARAM_KEY = "wantedRange";
 
+  const SIZE_SEGMENT = "/size";
+  const SIZE_PARAM_KEY = "mustBeSmall";
+
+  const EXTRAS_SEGMENT = "/extras";
+  const EXTRAS_PARAM_KEY = "extras";
 
   return (
     <>
@@ -51,7 +59,10 @@ function RouterWrapper() {
               onNavigate={(weight) => {
                 currentAnswers.riderWeight = weight;
                 console.log(currentAnswers);
-                navigate(HILLY_SEGMENT + "?" + WEIGHT_PARAM_KEY + "=" + weight);
+                const url = new URLBuilder(HILLY_SEGMENT)
+                  .addQueryParameter(WEIGHT_PARAM_KEY, weight.toString())
+                  .build();
+                navigate(url);
               }}
             />
           }
@@ -63,9 +74,10 @@ function RouterWrapper() {
               onNavigate={(isHilly) => {
                 currentAnswers.hillyArea = isHilly;
                 console.log(currentAnswers);
-                navigate(
-                  ROAD_STATE_SEGMENT + "?" + IS_HILLY_PARAM_KEY + "=" + isHilly
-                );
+                const url = new URLBuilder(ROAD_STATE_SEGMENT)
+                  .addQueryParameter(IS_HILLY_PARAM_KEY, isHilly.toString())
+                  .build();
+                navigate(url);
               }}
             />
           }
@@ -77,13 +89,10 @@ function RouterWrapper() {
               onNavigate={(bumpyRoads) => {
                 currentAnswers.bumpyRoads = bumpyRoads;
                 console.log(currentAnswers);
-                navigate(
-                  SPEED_LIMIT_SEGMENT +
-                    "?" +
-                    ROAD_STATE_PARAM_KEY +
-                    "=" +
-                    bumpyRoads
-                );
+                const url = new URLBuilder(SPEED_LIMIT_SEGMENT)
+                  .addQueryParameter(ROAD_STATE_PARAM_KEY, bumpyRoads.toString())
+                  .build();
+                navigate(url);
               }}
             />
           }
@@ -95,7 +104,10 @@ function RouterWrapper() {
               onNavigate={(wantedSpeedLimit) => {
                 currentAnswers.wantedSpeedLimit = wantedSpeedLimit;
                 console.log(currentAnswers);
-                // TODO navigate
+                const url = new URLBuilder(RANGE_SEGMENT)
+                  .addQueryParameter(SPEED_LIMIT_PARAM_KEY, wantedSpeedLimit.toString())
+                  .build();
+                navigate(url);
               }}
             />
           }

@@ -9,6 +9,7 @@ import { URLBuilder } from "./Utils";
 import RangeScreen from "./screens/RangeScreen";
 import SizeScreen from "./screens/SizeScreen";
 import ExtrasScreen from "./screens/ExtrasScreen";
+import ResultsScreen from "./screens/ResultsScreen";
 
 function RouterWrapper() {
   const navigate = useNavigate();
@@ -168,6 +169,10 @@ function RouterWrapper() {
               }}
             />
           }
+        ></Route>
+        <Route
+          path={RESULTS_SEGMENT}
+          element={<ResultsScreen onNavigate={() => navigate(ROOT_SEGMENT)} />}
         ></Route>
       </Routes>
     </>

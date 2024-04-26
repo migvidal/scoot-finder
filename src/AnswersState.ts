@@ -5,10 +5,10 @@ class AnswersState {
   wantedSpeedLimit: number | null = null;
   wantedRange: number | null = null;
   mustBeSmall: Boolean | null = null;
-  extras: Extras[] | null = null;
+  extras: Set<Extra> | null = null;
 }
 
-enum Extras {
+export enum Extra {
     Blinkers, Horn, CruiseControl
 }
 

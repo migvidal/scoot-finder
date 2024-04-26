@@ -6,6 +6,9 @@ import { currentAnswers } from "./AnswersState";
 import RoadStateScreen from "./screens/RoadStateScreen";
 import SpeedLimitScreen from "./screens/SpeedLimitScreen";
 import { URLBuilder } from "./Utils";
+import RangeScreen from "./screens/RangeScreen";
+import SizeScreen from "./screens/SizeScreen";
+import ExtrasScreen from "./screens/ExtrasScreen";
 
 function RouterWrapper() {
   const navigate = useNavigate();
@@ -32,6 +35,8 @@ function RouterWrapper() {
 
   const EXTRAS_SEGMENT = "/extras";
   const EXTRAS_PARAM_KEY = "extras";
+
+  const RESULTS_SEGMENT = "results";
 
   return (
     <>
@@ -90,7 +95,10 @@ function RouterWrapper() {
                 currentAnswers.bumpyRoads = bumpyRoads;
                 console.log(currentAnswers);
                 const url = new URLBuilder(SPEED_LIMIT_SEGMENT)
-                  .addQueryParameter(ROAD_STATE_PARAM_KEY, bumpyRoads.toString())
+                  .addQueryParameter(
+                    ROAD_STATE_PARAM_KEY,
+                    bumpyRoads.toString()
+                  )
                   .build();
                 navigate(url);
               }}
@@ -105,7 +113,56 @@ function RouterWrapper() {
                 currentAnswers.wantedSpeedLimit = wantedSpeedLimit;
                 console.log(currentAnswers);
                 const url = new URLBuilder(RANGE_SEGMENT)
-                  .addQueryParameter(SPEED_LIMIT_PARAM_KEY, wantedSpeedLimit.toString())
+                  .addQueryParameter(
+                    SPEED_LIMIT_PARAM_KEY,
+                    wantedSpeedLimit.toString()
+                  )
+                  .build();
+                navigate(url);
+              }}
+            />
+          }
+        ></Route>
+        <Route
+          path={RANGE_SEGMENT}
+          element={
+            <RangeScreen
+              onNavigate={(range) => {
+                currentAnswers.wantedRange = range;
+                console.log(currentAnswers);
+                const url = new URLBuilder(SIZE_SEGMENT)
+                  .addQueryParameter(RANGE_PARAM_KEY, range.toString())
+                  .build();
+                navigate(url);
+              }}
+            />
+          }
+        ></Route>
+        <Route
+          path={SIZE_SEGMENT}
+          element={
+            <SizeScreen
+              onNavigate={(small) => {
+                currentAnswers.mustBeSmall = small;
+                console.log(currentAnswers);
+                const url = new URLBuilder(EXTRAS_SEGMENT)
+                  .addQueryParameter(SIZE_PARAM_KEY, small.toString())
+                  .build();
+                navigate(url);
+              }}
+            />
+          }
+        ></Route>
+        <Route
+          path={EXTRAS_SEGMENT}
+          element={
+            <ExtrasScreen
+              onNavigate={(extras) => {
+                currentAnswers.extras = extras;
+                console.log(currentAnswers);
+                const extrasAsString = Array.from(extras).join(",");
+                const url = new URLBuilder(RESULTS_SEGMENT)
+                  .addQueryParameter(EXTRAS_PARAM_KEY, extrasAsString)
                   .build();
                 navigate(url);
               }}

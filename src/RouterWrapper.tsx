@@ -144,7 +144,7 @@ function RouterWrapper() {
           element={
             <SizeScreen
               onNavigate={(small) => {
-                currentAnswers.mustBeSmall = small;
+                currentAnswers.mustBePortable = small;
                 console.log(currentAnswers);
                 const url = new URLBuilder(EXTRAS_SEGMENT)
                   .addQueryParameter(SIZE_PARAM_KEY, small.toString())

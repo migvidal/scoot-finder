@@ -1,18 +1,20 @@
-import { Extra } from "./AnswersState";
+import { AnswersState, Extra } from "./AnswersState";
 
 class Scooter {
+  id: Number;
   price: number;
   brand: string;
   model: string;
   maxSupportedWeight: number;
-  performantUphill: Boolean;
+  canGoUphill: Boolean;
   suspension: Boolean;
   maxSpeed: number;
   range: number;
-  smallWhenFolded: Boolean;
-  imgName: string,
+  portable: Boolean;
+  imgName: string;
   extras: Set<Extra>;
   constructor(
+    id: number,
     price: number,
     brand: string,
     model: string,
@@ -29,11 +31,11 @@ class Scooter {
     this.brand = brand;
     this.model = model;
     this.maxSupportedWeight = maxSupportedWeight;
-    this.performantUphill = performantUphill;
+    this.canGoUphill = performantUphill;
     this.suspension = suspension;
     this.maxSpeed = maxSpeed;
     this.range = range;
-    this.smallWhenFolded = smallWhenFolded;
+    this.portable = smallWhenFolded;
     this.imgName = imgName;
     this.extras = extras;
   }
@@ -41,6 +43,7 @@ class Scooter {
 
 const scooters = [
   new Scooter(
+    1,
     700,
     "Segway-Ninebot",
     "MAX G2 E",
@@ -53,9 +56,34 @@ const scooters = [
     "max-g2.png",
     new Set([Extra.Blinkers, Extra.CruiseControl, Extra.Horn])
   ),
-  new Scooter(369, "Xiaomi", "Electric Scooter 4", 90, false, false, 25, 30, true, "xiaomi-4.png"),
-  new Scooter(299, "Xiaomi", "Electric Scooter 3", 90, false, false, 25, 30, true, "xiaomi-3.png"),
   new Scooter(
+    2,
+    369,
+    "Xiaomi",
+    "Electric Scooter 4",
+    90,
+    false,
+    false,
+    25,
+    30,
+    true,
+    "xiaomi-4.png"
+  ),
+  new Scooter(
+    3,
+    299,
+    "Xiaomi",
+    "Electric Scooter 3",
+    90,
+    false,
+    false,
+    25,
+    30,
+    true,
+    "xiaomi-3.png"
+  ),
+  new Scooter(
+    4,
     750,
     "Xiaomi",
     "Electric Scooter 4 Ultra",
@@ -69,6 +97,7 @@ const scooters = [
     new Set([Extra.CruiseControl])
   ),
   new Scooter(
+    5,
     600,
     "Smartgyro",
     "Speedway 3.0",
@@ -82,6 +111,7 @@ const scooters = [
     new Set([Extra.Blinkers, Extra.CruiseControl, Extra.Horn])
   ),
   new Scooter(
+    6,
     650,
     "Smartgyro",
     "Rockway",
@@ -95,6 +125,7 @@ const scooters = [
     new Set([Extra.Blinkers, Extra.CruiseControl, Extra.Horn])
   ),
   new Scooter(
+    7,
     400,
     "Cecotec",
     "Bongo Serie A",
@@ -108,6 +139,7 @@ const scooters = [
     new Set([Extra.RemovableBattery])
   ),
   new Scooter(
+    8,
     600,
     "Cecotec",
     "Bongo Serie Z Power Mountain",
@@ -121,6 +153,7 @@ const scooters = [
     new Set([Extra.Horn])
   ),
   new Scooter(
+    9,
     1100,
     "Äike",
     "T",
@@ -134,6 +167,7 @@ const scooters = [
     new Set([Extra.RemovableBattery])
   ),
   new Scooter(
+    10,
     900,
     "Dualtron",
     "Popular Single",
@@ -152,3 +186,36 @@ const scooters = [
     ])
   ),
 ];
+
+export function calculateResult(answersState: AnswersState) {
+  const hasEnoughRange = scooters.filter((scooter) => {
+    scooter.range >= answersState.wantedRange!;
+  });
+  const canSupportRider = scooters.filter((scooter) => {
+    scooter.maxSupportedWeight >= answersState.riderWeight!;
+  });
+  const portable = scooters.filter((scooter) => {
+    scooter.portable === answersState.mustBePortable;
+  });
+  const powerful = scooters.filter((scooter) => {
+    scooter.canGoUphill === answersState.hillyArea;
+  });
+  const withSuspension = scooters.filter((scooter) => {
+    scooter.suspension === answersState.bumpyRoads!;
+  });
+  const fastEnough = scooters.filter((scooter) => {
+    scooter.maxSpeed >= answersState.wantedSpeedLimit!;
+  });
+
+  const filteredScooters = [
+    hasEnoughRange,
+    canSupportRider,
+    portable,
+    powerful,
+    withSuspension,
+    fastEnough,
+  ].filter((group) => group.length > 0);
+
+  console.log("filteredScooters");
+  console.log(filteredScooters);
+}

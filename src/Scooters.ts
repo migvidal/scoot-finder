@@ -50,10 +50,11 @@ const scooters = [
     35,
     70,
     false,
+    "max-g2.png",
     new Set([Extra.Blinkers, Extra.CruiseControl, Extra.Horn])
   ),
-  new Scooter(369, "Xiaomi", "Electric Scooter 4", 90, false, false, 25, 30, true),
-  new Scooter(299, "Xiaomi", "Electric Scooter 3", 90, false, false, 25, 30, true),
+  new Scooter(369, "Xiaomi", "Electric Scooter 4", 90, false, false, 25, 30, true, "xiaomi-4.png"),
+  new Scooter(299, "Xiaomi", "Electric Scooter 3", 90, false, false, 25, 30, true, "xiaomi-3.png"),
   new Scooter(
     750,
     "Xiaomi",
@@ -64,6 +65,7 @@ const scooters = [
     35,
     70,
     false,
+    "xiaomi-4-ultra.png",
     new Set([Extra.CruiseControl])
   ),
   new Scooter(
@@ -76,6 +78,7 @@ const scooters = [
     45,
     45,
     false,
+    "speedway.png",
     new Set([Extra.Blinkers, Extra.CruiseControl, Extra.Horn])
   ),
   new Scooter(
@@ -88,6 +91,7 @@ const scooters = [
     45,
     45,
     false,
+    "rockway.png",
     new Set([Extra.Blinkers, Extra.CruiseControl, Extra.Horn])
   ),
   new Scooter(
@@ -100,6 +104,7 @@ const scooters = [
     25,
     25,
     true,
+    "bongo-a.png",
     new Set([Extra.RemovableBattery])
   ),
   new Scooter(
@@ -112,6 +117,7 @@ const scooters = [
     25,
     60,
     false,
+    "bongo-z-power-mountain.png",
     new Set([Extra.Horn])
   ),
   new Scooter(
@@ -124,6 +130,7 @@ const scooters = [
     25,
     40,
     true,
+    "aike-t.png",
     new Set([Extra.RemovableBattery])
   ),
   new Scooter(
@@ -136,6 +143,7 @@ const scooters = [
     65,
     65,
     false,
+    "popular-single.jpg",
     new Set([
       Extra.Blinkers,
       Extra.CruiseControl,

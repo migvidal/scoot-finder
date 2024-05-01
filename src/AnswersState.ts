@@ -9,7 +9,7 @@ class AnswersState {
 }
 
 export enum Extra {
-    Blinkers, Horn, CruiseControl
+    Blinkers, Horn, CruiseControl, RemovableBattery
 }
 
 export let currentAnswers = new AnswersState();

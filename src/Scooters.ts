@@ -185,6 +185,22 @@ const scooters = [
       Extra.RemovableBattery,
     ])
   ),
+  new Scooter(
+    11,
+    815,
+    "Pure",
+    "Advance Flex",
+    120,
+    true,
+    false,
+    25,
+    40,
+    true,
+    "pure-flex.jpg",
+    new Set([
+      Extra.Blinkers,
+    ])
+  ),
 ];
 
 export function calculateResult(answersState: AnswersState) {

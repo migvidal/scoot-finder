@@ -14,15 +14,17 @@ function ResultsScreen({ onNavigate }: { onNavigate: () => any }) {
         This is your perfect scooter:
       </h1>
       <div className="flex flex-col items-center bg-yellow-300 dark:bg-yellow-400 p-8 rounded-2xl text-black m-4">
-        <img src={bestScooter.getImgPath()} alt={bestScooter.getFullName()} />
-        <h2 className="text-xl font-bold">{bestScooter.getFullName()}</h2>
-        <p>{bestScooter.canGoUphill ? "Can go uphill" : ""}</p>
+        <img className="rounded-xl mb-4" src={bestScooter.getImgPath()} alt={bestScooter.getFullName()} />
+        <h3 className="text-xl font-bold">{bestScooter.getFullName()}</h3>
+        <p>{bestScooter.canGoUphill ? "Can climb steep hills" : ""}</p>
         <p>
           {"Max supported weight: " + bestScooter.maxSupportedWeight + "kg"}
         </p>
         <p>{bestScooter.portable ? "Portable" : ""}</p>
       </div>
-      <h2 className="text-xl font-bold">Other choices:</h2>
+      <RoundedButton onClick={onNavigate}>Try again</RoundedButton>
+      <div className="h-8"></div>
+      <h2 className="text-xl font-bold">Other options:</h2>
       <table>
         <tbody>
           {/* Other scooters */}
@@ -30,19 +32,28 @@ function ResultsScreen({ onNavigate }: { onNavigate: () => any }) {
             return (
               <tr key={scooter.id.toString()}>
                 <td>
-                  <div className="flex flex-col items-center p-8 rounded-2xl border m-4">
+                  <div className="flex flex-col p-8 rounded-2xl border border-gray-200 dark:border-gray-800 m-4">
                     <img
+                    className="rounded-xl mb-4"
                       src={scooter.getImgPath()}
                       alt={scooter.getFullName()}
                     />
-                    <p className="text-lg">{scooter.getFullName()}</p>
-                    <p>{scooter.canGoUphill ? "Can go uphill" : ""}</p>
-                    <p>
-                      {"Max supported weight: " +
-                        scooter.maxSupportedWeight +
-                        "kg"}
-                    </p>
-                    <p>{scooter.portable ? "Portable" : ""}</p>
+                    <h3 className="text-xl font-bold">
+                      {scooter.getFullName()}
+                    </h3>
+                    <ul className="list-disc">
+                      {scooter.canGoUphill ? (
+                        <li>Can climb steep hills</li>
+                      ) : (
+                        ""
+                      )}
+                      <li>
+                        {"Max supported weight: " +
+                          scooter.maxSupportedWeight +
+                          "kg"}
+                      </li>
+                      {scooter.portable ? <li>Portable</li> : ""}
+                    </ul>
                   </div>
                 </td>
               </tr>
@@ -50,7 +61,7 @@ function ResultsScreen({ onNavigate }: { onNavigate: () => any }) {
           })}
         </tbody>
       </table>
-      <RoundedButton children="Try again" onClick={onNavigate} />
+      
     </div>
   );
 }

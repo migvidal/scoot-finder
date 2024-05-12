@@ -40,8 +40,8 @@ class Scooter {
     this.imgName = imgName;
     this.extras = extras;
   }
-  getFullName = () => this.brand + " " + this.model
-  getImgPath = () => "/src/assets/scooters/" + this.imgName
+  getFullName = () => this.brand + " " + this.model;
+  getImgPath = () => "/src/assets/scooters/" + this.imgName;
 }
 
 const scooters = [
@@ -204,7 +204,11 @@ const scooters = [
   ),
 ];
 
-export function calculateResult(answersState: AnswersState) {
+class Occcurrence {
+  constructor(public scooter: Scooter, public count: number) {}
+}
+
+export function calculateResult(answersState: AnswersState): Scooter[] {
   const hasEnoughRange = scooters.filter((scooter) => {
     return scooter.range >= answersState.wantedRange!;
   });
@@ -224,7 +228,7 @@ export function calculateResult(answersState: AnswersState) {
     return scooter.maxSpeed >= answersState.wantedSpeedLimit!;
   });
 
-  const filteredScooters = [
+  const groupedScooters = [
     hasEnoughRange,
     canSupportRider,
     portable,
@@ -233,5 +237,33 @@ export function calculateResult(answersState: AnswersState) {
     fastEnough,
   ].filter((group) => group.length > 0);
 
-  return filteredScooters;
+  const allScooters = new Set(groupedScooters.flat());
+
+  // Count the occurrences
+  let occurrences: Set<Occcurrence> = new Set();
+  for (const scooter of allScooters) {
+    let count = 0;
+    for (const group of groupedScooters) {
+      for (const scooterInGroup of group) {
+        if (scooterInGroup.id === scooter.id) {
+          count++;
+        }
+      }
+    }
+    if (count > 1) {
+      const existingOccurrence = Array.from(occurrences).find(
+        (o) => o.scooter.id == scooter.id
+      );
+      if (existingOccurrence !== undefined) {
+        occurrences.delete(existingOccurrence);
+      }
+      occurrences.add(new Occcurrence(scooter, count));
+    }
+  }
+  console.log(occurrences);
+  let scootersOrderedByOccurences = Array.from(occurrences).sort(
+    (o1, o2) => o2.count - o1.count
+  );
+
+  return scootersOrderedByOccurences.flatMap(o => o.scooter);
 }

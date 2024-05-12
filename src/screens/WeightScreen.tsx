@@ -1,10 +1,7 @@
 import { FormEvent, useState } from "react";
+import RoundedButton from "../RoundedButton";
 
-function WeightScreen({
-  onNavigate,
-}: {
-  onNavigate: (weight: number) => any;
-}) {
+function WeightScreen({ onNavigate }: { onNavigate: (weight: number) => any }) {
   const [weight, setWeight] = useState(0);
   function onFormSubmit(e: FormEvent) {
     e.preventDefault();
@@ -19,19 +16,25 @@ function WeightScreen({
       <h1 className="text-3xl font-bold text-center px-4">
         How much do you weigh?
       </h1>
-      <form className="m-10" onSubmit={onFormSubmit}>
-        <input
-          className="border rounded-lg p-2"
-          type="number"
-          name="weight-input"
-          id="weight-input"
-          value={weight}
-          onChange={onWeightChange}
-          min="20"
-          max="200"
-        />
-        kg
-        <button type="submit">Next</button>
+      <form className="flex flex-col items-center m-10" onSubmit={onFormSubmit}>
+        <div>
+          <input
+            className="border rounded-lg p-2 dark:text-black"
+            type="number"
+            name="weight-input"
+            id="weight-input"
+            value={weight}
+            onChange={onWeightChange}
+            min="20"
+            max="200"
+          />
+          <span className="p-4">kg</span>
+        </div>
+        <div className="m-8">
+          <RoundedButton onClick={() => {}} type="submit">
+            Next
+          </RoundedButton>
+        </div>
       </form>
     </div>
   );

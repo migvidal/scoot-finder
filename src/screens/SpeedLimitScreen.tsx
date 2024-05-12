@@ -1,4 +1,5 @@
 import { FormEvent, useState } from "react";
+import RoundedButton from "../RoundedButton";
 
 function SpeedLimitScreen({
   onNavigate,
@@ -32,7 +33,11 @@ function SpeedLimitScreen({
           value={wantedSpeedLimit}
           onChange={onSpeedLimitChange}
         />
-        <button type="submit">Next</button>
+        <div className="m-8">
+          <RoundedButton onClick={() => {}} type="submit">
+            Next
+          </RoundedButton>
+        </div>
       </form>
     </div>
   );

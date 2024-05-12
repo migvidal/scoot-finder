@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react";
 import { Extra } from "../AnswersState";
+import RoundedButton from "../RoundedButton";
 
 class ExtrasForm {
   extra: Extra;
@@ -47,7 +48,7 @@ function ExtrasScreen({
       <h1 className="text-3xl font-bold text-center px-4">
         What extra features do you want on your scooter?
       </h1>
-      <form onSubmit={onFormSubmit}>
+      <form onSubmit={onFormSubmit} className="m-4">
         {extrasFormElements.map((e) => (
           <div key={e.extra}>
             <input
@@ -57,10 +58,15 @@ function ExtrasScreen({
               checked={extras.has(e.extra)}
               onChange={() => onExtrasChange(e.extra)}
             />
+            <span className="mx-1"></span>
             <label htmlFor={e.nameAndId}>{e.label}</label>
           </div>
         ))}
-        <button type="submit">Next</button>
+        <div className="m-8">
+          <RoundedButton onClick={() => {}} type="submit">
+            Next
+          </RoundedButton>
+        </div>
       </form>
     </div>
   );

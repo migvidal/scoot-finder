@@ -1,4 +1,5 @@
 import { FormEvent, useState } from "react";
+import RoundedButton from "../RoundedButton";
 
 function HillyScreen({
   onNavigate,
@@ -19,23 +20,31 @@ function HillyScreen({
         Do you live in a hilly area?
       </h1>
       <form onSubmit={onFormSubmit}>
-        <input
-          type="radio"
-          name="radio-hilly"
-          id="radio-hilly-yes"
-          checked={isHilly}
-          onChange={() => onHillyChange(true)}
-        />
-        <label htmlFor="radio-hilly-yes">Yes</label>
-        <input
-          type="radio"
-          name="radio-hilly"
-          id="radio-hilly-no"
-          checked={!isHilly}
-          onChange={() => onHillyChange(false)}
-        />
-        <label htmlFor="radio-hilly-no">No</label>
-        <button type="submit">Next</button>
+        <span className="m-4">
+          <input
+            type="radio"
+            name="radio-hilly"
+            id="radio-hilly-yes"
+            checked={isHilly}
+            onChange={() => onHillyChange(true)}
+          />
+          <label htmlFor="radio-hilly-yes">Yes</label>
+        </span>
+        <span className="m-4">
+          <input
+            type="radio"
+            name="radio-hilly"
+            id="radio-hilly-no"
+            checked={!isHilly}
+            onChange={() => onHillyChange(false)}
+          />
+          <label htmlFor="radio-hilly-no">No</label>
+        </span>
+        <div className="m-8">
+          <RoundedButton onClick={() => {}} type="submit">
+            Next
+          </RoundedButton>
+        </div>
       </form>
     </div>
   );

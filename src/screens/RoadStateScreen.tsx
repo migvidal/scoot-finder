@@ -1,4 +1,5 @@
 import { FormEvent, useState } from "react";
+import RoundedButton from "../RoundedButton";
 
 function RoadStateScreen({
   onNavigate,
@@ -20,25 +21,33 @@ function RoadStateScreen({
         What's the condition of the roads in your location?
       </h1>
       <form onSubmit={onFormSubmit}>
-        <input
-          type="radio"
-          name="radio-bumpy"
-          id="radio-bumpy-yes"
-          checked={bumpyRoads}
-          onChange={() => onBumpyRoadsChange(true)}
-        />
-        <label htmlFor="radio-bumpy-yes">
-          Poor: uneven, bumpy surface; potholes...
-        </label>
-        <input
-          type="radio"
-          name="radio-bumpy"
-          id="radio-bumpy-no"
-          checked={!bumpyRoads}
-          onChange={() => onBumpyRoadsChange(false)}
-        />
-        <label htmlFor="radio-bumpy-no">Good: smooth, even surface.</label>
-        <button type="submit">Next</button>
+        <div className="m-2">
+          <input
+            type="radio"
+            name="radio-bumpy"
+            id="radio-bumpy-yes"
+            checked={bumpyRoads}
+            onChange={() => onBumpyRoadsChange(true)}
+          />
+          <label htmlFor="radio-bumpy-yes">
+            Poor: uneven, bumpy surface; potholes...
+          </label>
+        </div>
+        <div className="m-2">
+          <input
+            type="radio"
+            name="radio-bumpy"
+            id="radio-bumpy-no"
+            checked={!bumpyRoads}
+            onChange={() => onBumpyRoadsChange(false)}
+          />
+          <label htmlFor="radio-bumpy-no">Good: smooth, even surface.</label>
+        </div>
+        <div className="m-8">
+          <RoundedButton onClick={() => {}} type="submit">
+            Next
+          </RoundedButton>
+        </div>
       </form>
     </div>
   );

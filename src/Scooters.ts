@@ -27,6 +27,7 @@ class Scooter {
     imgName: string,
     extras: Set<Extra> = new Set()
   ) {
+    this.id = id;
     this.price = price;
     this.brand = brand;
     this.model = model;
@@ -39,6 +40,8 @@ class Scooter {
     this.imgName = imgName;
     this.extras = extras;
   }
+  getFullName = () => this.brand + " " + this.model
+  getImgPath = () => "/src/assets/scooters/" + this.imgName
 }
 
 const scooters = [

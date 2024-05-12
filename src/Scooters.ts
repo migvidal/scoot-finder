@@ -197,30 +197,28 @@ const scooters = [
     40,
     true,
     "pure-flex.jpg",
-    new Set([
-      Extra.Blinkers,
-    ])
+    new Set([Extra.Blinkers])
   ),
 ];
 
 export function calculateResult(answersState: AnswersState) {
   const hasEnoughRange = scooters.filter((scooter) => {
-    scooter.range >= answersState.wantedRange!;
+    return scooter.range >= answersState.wantedRange!;
   });
   const canSupportRider = scooters.filter((scooter) => {
-    scooter.maxSupportedWeight >= answersState.riderWeight!;
+    return scooter.maxSupportedWeight >= answersState.riderWeight!;
   });
   const portable = scooters.filter((scooter) => {
-    scooter.portable === answersState.mustBePortable;
+    return scooter.portable === answersState.mustBePortable;
   });
   const powerful = scooters.filter((scooter) => {
-    scooter.canGoUphill === answersState.hillyArea;
+    return scooter.canGoUphill === answersState.hillyArea;
   });
   const withSuspension = scooters.filter((scooter) => {
-    scooter.suspension === answersState.bumpyRoads!;
+    return scooter.suspension === answersState.bumpyRoads!;
   });
   const fastEnough = scooters.filter((scooter) => {
-    scooter.maxSpeed >= answersState.wantedSpeedLimit!;
+    return scooter.maxSpeed >= answersState.wantedSpeedLimit!;
   });
 
   const filteredScooters = [
@@ -232,6 +230,5 @@ export function calculateResult(answersState: AnswersState) {
     fastEnough,
   ].filter((group) => group.length > 0);
 
-  console.log("filteredScooters");
-  console.log(filteredScooters);
+  return filteredScooters;
 }

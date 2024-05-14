@@ -51,7 +51,7 @@ function RouterWrapper() {
             <HomeScreen>
               <Link
                 to={WEIGHT_SEGMENT}
-                className="text-yellow-600 dark:text-yellow-300"
+                className="rounded-lg bg-yellow-300 dark:bg-yellow-600 px-4 py-2"
               >
                 Begin
               </Link>

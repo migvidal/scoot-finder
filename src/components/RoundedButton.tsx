@@ -11,7 +11,7 @@ function RoundedButton({
 }) {
   return (
     <button
-      className="rounded-md rounded-tr-2xl rounded-br-2xl bg-yellow-300 dark:bg-yellow-600 px-4 py-2"
+      className="rounded-lg bg-yellow-300 dark:bg-yellow-600 px-4 py-2"
       onClick={onClick}
       type={type ?? "button"}
     >

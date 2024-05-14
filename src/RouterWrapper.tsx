@@ -40,7 +40,7 @@ function RouterWrapper() {
   const RESULTS_SEGMENT = "results";
 
   return (
-    <>
+    <div className="max-w-2xl">
       <div>
         <Link to={ROOT_SEGMENT}>ScootFinder</Link>
       </div>
@@ -175,7 +175,7 @@ function RouterWrapper() {
           element={<ResultsScreen onNavigate={() => navigate(ROOT_SEGMENT)} />}
         ></Route>
       </Routes>
-    </>
+    </div>
   );
 }
 export default RouterWrapper;

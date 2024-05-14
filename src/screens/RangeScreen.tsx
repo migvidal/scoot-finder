@@ -1,5 +1,5 @@
 import { FormEvent, useState } from "react";
-import RoundedButton from "../RoundedButton";
+import RoundedButton from "../components/RoundedButton";
 
 function RangeScreen({
   onNavigate,

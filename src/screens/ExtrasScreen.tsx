@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
 import { Extra } from "../AnswersState";
-import RoundedButton from "../RoundedButton";
+import RoundedButton from "../components/RoundedButton";
 
 class ExtrasForm {
   extra: Extra;

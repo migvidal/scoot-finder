@@ -1,5 +1,5 @@
 import { currentAnswers } from "../AnswersState";
-import RoundedButton from "../RoundedButton";
+import RoundedButton from "../components/RoundedButton";
 import { calculateResult } from "../Scooters";
 
 function ResultsScreen({ onNavigate }: { onNavigate: () => any }) {

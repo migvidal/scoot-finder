@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import RoundedButton from "../RoundedButton";
+import RoundedButton from "../components/RoundedButton";
 
 function HomeScreen({ children }: { children: ReactNode }) {
   return (

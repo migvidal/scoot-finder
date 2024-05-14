@@ -6,7 +6,7 @@ function RangeScreen({
 }: {
   onNavigate: (range: number) => any;
 }) {
-  const [range, setRange] = useState(0);
+  const [range, setRange] = useState(30);
 
   function onFormSubmit(e: FormEvent) {
     e.preventDefault();
@@ -21,7 +21,7 @@ function RangeScreen({
       <h1 className="text-3xl font-bold text-center px-4">
         How much range do you need?
       </h1>
-      <form onSubmit={onFormSubmit}>
+      <form className="flex flex-col items-center m-8" onSubmit={onFormSubmit}>
         <p>{range + "km"}</p>
         <input
           type="range"

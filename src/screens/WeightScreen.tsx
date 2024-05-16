@@ -1,8 +1,15 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import RoundedButton from "../components/RoundedButton";
+import { faPerson } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function WeightScreen({ onNavigate }: { onNavigate: (weight: number) => any }) {
-  const [weight, setWeight] = useState(0);
+  const [weight, setWeight] = useState(60);
+  const personIconStyle = {
+    height: (1.5 * weight).toFixed(0) + "px",
+    width: (1.5 * weight).toFixed(0) + "px",
+  };
+
   function onFormSubmit(e: FormEvent) {
     e.preventDefault();
     onNavigate(weight);
@@ -29,6 +36,15 @@ function WeightScreen({ onNavigate }: { onNavigate: (weight: number) => any }) {
             max="200"
           />
           <span className="p-4">kg</span>
+        </div>
+
+        <div className="size-40 flex items-center justify-center border m-4">
+          <div style={personIconStyle}>
+            <FontAwesomeIcon
+              className="size-full"
+              icon={faPerson}
+            ></FontAwesomeIcon>
+          </div>
         </div>
         <div className="m-8">
           <RoundedButton onClick={() => {}} type="submit">

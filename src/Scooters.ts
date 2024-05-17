@@ -1,45 +1,20 @@
 import { AnswersState, Extra } from "./AnswersState";
 
 class Scooter {
-  id: Number;
-  price: number;
-  brand: string;
-  model: string;
-  maxSupportedWeight: number;
-  canGoUphill: Boolean;
-  suspension: Boolean;
-  maxSpeed: number;
-  range: number;
-  portable: Boolean;
-  imgName: string;
-  extras: Set<Extra>;
   constructor(
-    id: number,
-    price: number,
-    brand: string,
-    model: string,
-    maxSupportedWeight: number,
-    performantUphill: Boolean,
-    suspension: Boolean,
-    maxSpeed: number,
-    range: number,
-    smallWhenFolded: Boolean,
-    imgName: string,
-    extras: Set<Extra> = new Set()
-  ) {
-    this.id = id;
-    this.price = price;
-    this.brand = brand;
-    this.model = model;
-    this.maxSupportedWeight = maxSupportedWeight;
-    this.canGoUphill = performantUphill;
-    this.suspension = suspension;
-    this.maxSpeed = maxSpeed;
-    this.range = range;
-    this.portable = smallWhenFolded;
-    this.imgName = imgName;
-    this.extras = extras;
-  }
+    public id: number,
+    public price: number,
+    public brand: string,
+    public model: string,
+    public maxSupportedWeight: number,
+    public performantUphill: Boolean,
+    public suspension: Boolean,
+    public maxSpeed: number,
+    public range: number,
+    public smallWhenFolded: Boolean,
+    public imgName: string,
+    public extras: Set<Extra> = new Set()
+  ) {}
   getFullName = () => this.brand + " " + this.model;
   getImgPath = () => "/src/assets/scooters/" + this.imgName;
 }
@@ -265,5 +240,5 @@ export function calculateResult(answersState: AnswersState): Scooter[] {
     (o1, o2) => o2.count - o1.count
   );
 
-  return scootersOrderedByOccurences.flatMap(o => o.scooter);
+  return scootersOrderedByOccurences.flatMap((o) => o.scooter);
 }

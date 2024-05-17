@@ -1,5 +1,7 @@
 import { FormEvent, useState } from "react";
 import RoundedButton from "../components/RoundedButton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRoad } from "@fortawesome/free-solid-svg-icons";
 
 function RoadStateScreen({
   onNavigate,
@@ -20,6 +22,7 @@ function RoadStateScreen({
       <h1 className="text-3xl font-bold text-center px-4">
         What's the condition of the roads in your location?
       </h1>
+      <FontAwesomeIcon className="size-20" icon={faRoad} />
       <form onSubmit={onFormSubmit}>
         <div className="m-2">
           <input

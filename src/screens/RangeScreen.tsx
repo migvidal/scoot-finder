@@ -1,5 +1,7 @@
 import { FormEvent, useState } from "react";
 import RoundedButton from "../components/RoundedButton";
+import { faRoute } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function RangeScreen({
   onNavigate,
@@ -21,6 +23,7 @@ function RangeScreen({
       <h1 className="text-3xl font-bold text-center px-4">
         How much range do you need?
       </h1>
+      <FontAwesomeIcon className="size-20" icon={faRoute} />
       <form className="flex flex-col items-center m-8" onSubmit={onFormSubmit}>
         <p>{range + "km"}</p>
         <input

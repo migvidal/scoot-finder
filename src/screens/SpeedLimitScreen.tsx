@@ -1,5 +1,7 @@
 import { FormEvent, useState } from "react";
 import RoundedButton from "../components/RoundedButton";
+import { faGauge } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function SpeedLimitScreen({
   onNavigate,
@@ -24,6 +26,7 @@ function SpeedLimitScreen({
       <p className="text-gray-500 py-4">
         Remember to follow national and local laws for the speed limit of PEVs
       </p>
+      <FontAwesomeIcon className="size-20" icon={faGauge} />
       <form className="flex flex-col items-center m-8" onSubmit={onFormSubmit}>
         <p>{wantedSpeedLimit + "km/h"}</p>
         <input

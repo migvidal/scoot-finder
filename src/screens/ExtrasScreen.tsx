@@ -1,26 +1,32 @@
 import { FormEvent, useState } from "react";
 import { Extra } from "../AnswersState";
 import RoundedButton from "../components/RoundedButton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import {
+  faBullhorn,
+  faGaugeHigh,
+  faLightbulb,
+} from "@fortawesome/free-solid-svg-icons";
 
 class ExtrasForm {
-  extra: Extra;
-  label: string;
-  nameAndId: string;
-  constructor(extra: Extra, label: string, nameAndId: string) {
-    this.extra = extra;
-    this.label = label;
-    this.nameAndId = nameAndId;
-  }
+  constructor(
+    public extra: Extra,
+    public label: string,
+    public nameAndId: string,
+    public icon: IconProp
+  ) {}
 }
 
 const extrasFormElements = [
-  new ExtrasForm(Extra.Blinkers, "Blinkers", "checkbox-blinkers"),
+  new ExtrasForm(Extra.Blinkers, "Blinkers", "checkbox-blinkers", faLightbulb),
   new ExtrasForm(
     Extra.CruiseControl,
     "Cruise control",
-    "checkbox-cruise-control"
+    "checkbox-cruise-control",
+    faGaugeHigh
   ),
-  new ExtrasForm(Extra.Horn, "Horn", "checkbox-horn"),
+  new ExtrasForm(Extra.Horn, "Horn", "checkbox-horn", faBullhorn),
 ];
 
 function ExtrasScreen({
@@ -48,6 +54,13 @@ function ExtrasScreen({
       <h1 className="text-3xl font-bold text-center px-4">
         What extra features do you want on your scooter?
       </h1>
+      <div className="flex flex-row">
+        {extrasFormElements.map((e) => (
+          <div className={extras.has(e.extra) ? "opacity-100" : "opacity-30"}>
+            <FontAwesomeIcon icon={e.icon} className="size-20 m-4" />
+          </div>
+        ))}
+      </div>
       <form onSubmit={onFormSubmit} className="m-4">
         {extrasFormElements.map((e) => (
           <div key={e.extra}>
@@ -64,7 +77,7 @@ function ExtrasScreen({
         ))}
         <div className="m-8">
           <RoundedButton onClick={() => {}} type="submit">
-            Next
+            Finish
           </RoundedButton>
         </div>
       </form>

@@ -1,5 +1,7 @@
 import { FormEvent, useState } from "react";
 import RoundedButton from "../components/RoundedButton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBus } from "@fortawesome/free-solid-svg-icons";
 
 function SizeScreen({ onNavigate }: { onNavigate: (small: Boolean) => any }) {
   const [small, setSmall] = useState(false);
@@ -15,6 +17,7 @@ function SizeScreen({ onNavigate }: { onNavigate: (small: Boolean) => any }) {
       <h1 className="text-3xl font-bold text-center px-4">
         Do you plan on bringing the scooter on public transport / your car?
       </h1>
+      <FontAwesomeIcon className="size-20" icon={faBus} />
       <form onSubmit={onFormSubmit} className="m-4">
         <div>
           <input

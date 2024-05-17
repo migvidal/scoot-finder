@@ -11,7 +11,7 @@ class Scooter {
     public suspension: Boolean,
     public maxSpeed: number,
     public range: number,
-    public smallWhenFolded: Boolean,
+    public portable: Boolean,
     public imgName: string,
     public extras: Set<Extra> = new Set()
   ) {}

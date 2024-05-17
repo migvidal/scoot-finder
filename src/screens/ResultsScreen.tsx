@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { currentAnswers } from "../AnswersState";
+import { AnswersState, currentAnswers } from "../AnswersState";
 import RoundedButton from "../components/RoundedButton";
 import { calculateResult } from "../Scooters";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
@@ -23,7 +23,7 @@ function ResultsScreen({ onNavigate }: { onNavigate: () => any }) {
         />
         <h3 className="text-xl font-bold">{bestScooter.getFullName()}</h3>
         <ul>
-          {bestScooter.canGoUphill ? (
+          {bestScooter.performantUphill ? (
             <li>
               <FontAwesomeIcon className="pr-2" icon={faCheck} />
               Can climb steep hills
@@ -52,7 +52,7 @@ function ResultsScreen({ onNavigate }: { onNavigate: () => any }) {
                 />
                 <h3 className="text-xl font-bold">{scooter.getFullName()}</h3>
                 <ul>
-                  {scooter.canGoUphill ? <li>Can climb steep hills</li> : ""}
+                  {scooter.performantUphill ? <li>Can climb steep hills</li> : ""}
                   <li>
                     <FontAwesomeIcon className="pr-2" icon={faCheck} />
                     {"Max supported weight: " +

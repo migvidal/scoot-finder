@@ -41,8 +41,11 @@ function RouterWrapper() {
 
   return (
     <div className="max-w-2xl">
-      <div>
-        <Link to={ROOT_SEGMENT}>ScootFinder</Link>
+      <div className="m-4">
+        <Link to={ROOT_SEGMENT} className="text-yellow-600 rounded-full border border-yellow-600 p-2 pt-3">
+          <span className="text-2xl font-black">S</span><span className="font-thin">COOT</span>
+          <span className="text-2xl font-black">F</span><span className="font-thin">INDER</span>
+        </Link>
       </div>
       <Routes>
         <Route

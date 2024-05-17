@@ -7,7 +7,7 @@ import RoadStateScreen from "./screens/RoadStateScreen";
 import SpeedLimitScreen from "./screens/SpeedLimitScreen";
 import { URLBuilder } from "./Utils";
 import RangeScreen from "./screens/RangeScreen";
-import SizeScreen from "./screens/SizeScreen";
+import SizeScreen from "./screens/SmallWhenFoldedScreen";
 import ExtrasScreen from "./screens/ExtrasScreen";
 import ResultsScreen from "./screens/ResultsScreen";
 

@@ -1,6 +1,8 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { currentAnswers } from "../AnswersState";
 import RoundedButton from "../components/RoundedButton";
 import { calculateResult } from "../Scooters";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 function ResultsScreen({ onNavigate }: { onNavigate: () => any }) {
   const bestScooter = calculateResult(currentAnswers)[0];
@@ -20,16 +22,24 @@ function ResultsScreen({ onNavigate }: { onNavigate: () => any }) {
           alt={bestScooter.getFullName()}
         />
         <h3 className="text-xl font-bold">{bestScooter.getFullName()}</h3>
-        <p>{bestScooter.canGoUphill ? "Can climb steep hills" : ""}</p>
-        <p>
+        <ul>
+          {bestScooter.canGoUphill ? (
+            <li>
+              <FontAwesomeIcon className="pr-2" icon={faCheck} />
+              Can climb steep hills
+            </li>
+          ) : (
+            ""
+          )}
+
           {"Max supported weight: " + bestScooter.maxSupportedWeight + "kg"}
-        </p>
-        <p>{bestScooter.portable ? "Portable" : ""}</p>
+          <p>{bestScooter.portable ? "Portable" : ""}</p>
+        </ul>
       </div>
       <RoundedButton onClick={onNavigate}>Try again</RoundedButton>
       <div className="h-8"></div>
       <h2 className="text-xl font-bold">Other options:</h2>
-      <div className="flex flex-row flex-wrap">
+      <div className="flex flex-row flex-wrap justify-evenly">
         {/* Other scooters */}
         {otherScooters.map((scooter) => {
           return (
@@ -41,14 +51,23 @@ function ResultsScreen({ onNavigate }: { onNavigate: () => any }) {
                   alt={scooter.getFullName()}
                 />
                 <h3 className="text-xl font-bold">{scooter.getFullName()}</h3>
-                <ul className="list-disc">
+                <ul>
                   {scooter.canGoUphill ? <li>Can climb steep hills</li> : ""}
                   <li>
+                    <FontAwesomeIcon className="pr-2" icon={faCheck} />
                     {"Max supported weight: " +
                       scooter.maxSupportedWeight +
                       "kg"}
                   </li>
-                  {scooter.portable ? <li>Portable</li> : ""}
+
+                  {scooter.portable ? (
+                    <li>
+                      <FontAwesomeIcon className="pr-2" icon={faCheck} />
+                      Portable
+                    </li>
+                  ) : (
+                    ""
+                  )}
                 </ul>
               </div>
             </div>

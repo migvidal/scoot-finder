@@ -38,8 +38,12 @@ function WeightScreen({ onNavigate }: { onNavigate: (weight: number) => any }) {
           <span className="p-4">kg</span>
         </div>
 
-        <div className="size-40 flex items-center justify-center m-4">
-          <div style={personIconStyle}>
+        <div className="relative size-40 flex items-center justify-center m-4">
+          <img
+            src="/src/assets/icons/scooter.svg"
+            className="absolute bottom-0 size-28 opacity-50"
+          />
+          <div className="absolute bottom-6" style={personIconStyle}>
             <FontAwesomeIcon
               className="size-full"
               icon={faPerson}

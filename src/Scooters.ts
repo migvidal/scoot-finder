@@ -1,6 +1,6 @@
 import { AnswersState, Extra } from "./AnswersState";
 
-class Scooter {
+export class Scooter {
   constructor(
     public id: number,
     public price: number,

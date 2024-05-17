@@ -1,8 +1,27 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AnswersState, currentAnswers } from "../AnswersState";
 import RoundedButton from "../components/RoundedButton";
-import { calculateResult } from "../Scooters";
+import { Scooter, calculateResult } from "../Scooters";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
+
+function getPropertyList(scooter: Scooter): JSX.Element {
+  const propertiesAsStrings = [
+    scooter.performantUphill ? "Can climb hills" : null,
+    scooter.portable ? "Portable" : null,
+    `Max supported weight: ${scooter.maxSupportedWeight}kg`,
+    `Max speed: ${scooter.maxSpeed} km/h`,
+  ].filter((property) => property !== null);
+  return (
+    <ul>
+      {propertiesAsStrings.map((property) => (
+        <li>
+          <FontAwesomeIcon className="pr-2" icon={faCheck} />
+          <span>{property}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 function ResultsScreen({ onNavigate }: { onNavigate: () => any }) {
   const bestScooter = calculateResult(currentAnswers)[0];
@@ -22,19 +41,7 @@ function ResultsScreen({ onNavigate }: { onNavigate: () => any }) {
           alt={bestScooter.getFullName()}
         />
         <h3 className="text-xl font-bold">{bestScooter.getFullName()}</h3>
-        <ul>
-          {bestScooter.performantUphill ? (
-            <li>
-              <FontAwesomeIcon className="pr-2" icon={faCheck} />
-              Can climb steep hills
-            </li>
-          ) : (
-            ""
-          )}
-
-          {"Max supported weight: " + bestScooter.maxSupportedWeight + "kg"}
-          <p>{bestScooter.portable ? "Portable" : ""}</p>
-        </ul>
+        {getPropertyList(bestScooter)}
       </div>
       <RoundedButton onClick={onNavigate}>Try again</RoundedButton>
       <div className="h-8"></div>
@@ -51,24 +58,7 @@ function ResultsScreen({ onNavigate }: { onNavigate: () => any }) {
                   alt={scooter.getFullName()}
                 />
                 <h3 className="text-xl font-bold">{scooter.getFullName()}</h3>
-                <ul>
-                  {scooter.performantUphill ? <li>Can climb steep hills</li> : ""}
-                  <li>
-                    <FontAwesomeIcon className="pr-2" icon={faCheck} />
-                    {"Max supported weight: " +
-                      scooter.maxSupportedWeight +
-                      "kg"}
-                  </li>
-
-                  {scooter.portable ? (
-                    <li>
-                      <FontAwesomeIcon className="pr-2" icon={faCheck} />
-                      Portable
-                    </li>
-                  ) : (
-                    ""
-                  )}
-                </ul>
+                {getPropertyList(scooter)}
               </div>
             </div>
           );

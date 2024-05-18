@@ -55,9 +55,6 @@ function RouterWrapper() {
           <span className="font-thin">INDER</span>
         </Link>
         <div>
-          {locale}
-        </div>
-        <div>
           <button
             onClick={() => setLocale("en")}
             className={locale === "es" ? "" : "underline"}

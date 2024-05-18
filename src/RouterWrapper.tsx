@@ -46,7 +46,7 @@ function RouterWrapper() {
     <div className="max-w-2xl">
       <div className="m-4 flex justify-between items-center">
         <Link to={ROOT_SEGMENT}>
-          <Logo />
+          <Logo className="size-16" />
         </Link>
         <div>
           <button

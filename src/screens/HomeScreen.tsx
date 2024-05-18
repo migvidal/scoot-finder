@@ -9,12 +9,12 @@ function HomeScreen({ children }: { children: ReactNode }) {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="w-full flex flex-wrap">
-        <h1 className="text-6xl font-bold px-4 text-left max-w-sm">
+      <div className="w-full flex flex-wrap sm:flex-nowrap items-center justify-center">
+        <h1 className="text-6xl font-bold px-4 text-center max-w-sm">
           {T("find-your-perfect-scooter")}
           <span className="text-yellow-600">!</span>
         </h1>
-        <ExtendedLogo />
+        <ExtendedLogo className="p-10 h-full w-full sm:w-72"/>
       </div>
       <div className="py-10"></div>
       {children}

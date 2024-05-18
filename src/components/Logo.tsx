@@ -1,8 +1,9 @@
-export default function Logo() {
-  const fillClassName = "fill-black dark:fill-white"
-  const strokeClassName = "stroke-black dark:stroke-white"
+export default function Logo({ className }: { className: string }) {
+  const fillClassName = "fill-black dark:fill-white";
+  const strokeClassName = "stroke-black dark:stroke-white";
   return (
     <svg
+      className={className}
       width="37"
       height="37"
       viewBox="0 0 37 37"
@@ -41,7 +42,10 @@ export default function Logo() {
           className={fillClassName}
         />
       </g>
-      <path d="M36 13H37V11H36V13ZM29 13H36V11H29V13Z" className={fillClassName}/>
+      <path
+        d="M36 13H37V11H36V13ZM29 13H36V11H29V13Z"
+        className={fillClassName}
+      />
       <path
         fill-rule="evenodd"
         clip-rule="evenodd"

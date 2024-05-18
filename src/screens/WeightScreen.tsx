@@ -2,8 +2,10 @@ import { FormEvent, useEffect, useState } from "react";
 import RoundedButton from "../components/RoundedButton";
 import { faPerson } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useAutocompleteT } from "../i18n/translate";
 
 function WeightScreen({ onNavigate }: { onNavigate: (weight: number) => any }) {
+  const { T } = useAutocompleteT();
   const [weight, setWeight] = useState(60);
   const personIconStyle = {
     height: (1.5 * weight).toFixed(0) + "px",
@@ -21,7 +23,7 @@ function WeightScreen({ onNavigate }: { onNavigate: (weight: number) => any }) {
   return (
     <div className="flex flex-col items-center">
       <h1 className="text-3xl font-bold text-center px-4">
-        How much do you weigh?
+        {T("questions.how-much-do-you-weigh")}
       </h1>
       <form className="flex flex-col items-center m-10" onSubmit={onFormSubmit}>
         <div>
@@ -52,7 +54,7 @@ function WeightScreen({ onNavigate }: { onNavigate: (weight: number) => any }) {
         </div>
         <div className="m-8">
           <RoundedButton onClick={() => {}} type="submit">
-            Next
+            {T("next")}
           </RoundedButton>
         </div>
       </form>

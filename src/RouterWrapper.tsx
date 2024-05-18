@@ -80,7 +80,7 @@ function RouterWrapper() {
                 to={WEIGHT_SEGMENT}
                 className="rounded-lg bg-yellow-300 dark:bg-yellow-600 px-4 py-2"
               >
-                Begin
+                {T("begin")}
               </Link>
             </HomeScreen>
           }

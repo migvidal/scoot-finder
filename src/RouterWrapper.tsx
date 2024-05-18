@@ -10,9 +10,12 @@ import RangeScreen from "./screens/RangeScreen";
 import SizeScreen from "./screens/PortableScreen";
 import ExtrasScreen from "./screens/ExtrasScreen";
 import ResultsScreen from "./screens/ResultsScreen";
+import { tr, useT } from "talkr";
+import { useState } from "react";
 
 function RouterWrapper() {
   const navigate = useNavigate();
+  const { T, setLocale, locale } = useT();
 
   const ROOT_SEGMENT = "/";
 
@@ -41,11 +44,34 @@ function RouterWrapper() {
 
   return (
     <div className="max-w-2xl">
-      <div className="m-4">
-        <Link to={ROOT_SEGMENT} className="text-yellow-600 rounded-full border border-yellow-600 p-2 pt-3">
-          <span className="text-2xl font-black">S</span><span className="font-thin">COOT</span>
-          <span className="text-2xl font-black">F</span><span className="font-thin">INDER</span>
+      <div className="m-4 flex justify-between items-center">
+        <Link
+          to={ROOT_SEGMENT}
+          className="text-yellow-600 rounded-full border border-yellow-600 p-2 pt-3"
+        >
+          <span className="text-2xl font-black">S</span>
+          <span className="font-thin">COOT</span>
+          <span className="text-2xl font-black">F</span>
+          <span className="font-thin">INDER</span>
         </Link>
+        <div>
+          {locale}
+        </div>
+        <div>
+          <button
+            onClick={() => setLocale("en")}
+            className={locale === "es" ? "" : "underline"}
+          >
+            EN
+          </button>
+          <span className="p-2"></span>
+          <button
+            onClick={() => setLocale("es")}
+            className={locale === "es" ? "underline" : ""}
+          >
+            ES
+          </button>
+        </div>
       </div>
       <Routes>
         <Route

@@ -3,13 +3,15 @@ import { AnswersState, currentAnswers } from "../AnswersState";
 import RoundedButton from "../components/RoundedButton";
 import { Scooter, calculateResult } from "../Scooters";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { useAutocompleteT } from "../i18n/translate";
 
 function getPropertyList(scooter: Scooter): JSX.Element {
+  const { T } = useAutocompleteT();
   const propertiesAsStrings = [
-    scooter.performantUphill ? "Can climb hills" : null,
-    scooter.portable ? "Portable" : null,
-    `Max supported weight: ${scooter.maxSupportedWeight}kg`,
-    `Max speed: ${scooter.maxSpeed} km/h`,
+    scooter.performantUphill ? T("can-climb-hills") : null,
+    scooter.portable ? T("portable") : null,
+    T("max-supported-weight") + scooter.maxSupportedWeight + "kg",
+    T("max-speed") + scooter.maxSpeed + "km/h",
   ].filter((property) => property !== null);
   return (
     <ul>
@@ -24,6 +26,8 @@ function getPropertyList(scooter: Scooter): JSX.Element {
 }
 
 function ResultsScreen({ onNavigate }: { onNavigate: () => any }) {
+  const { T } = useAutocompleteT();
+
   const bestScooter = calculateResult(currentAnswers)[0];
   const otherScooters = calculateResult(currentAnswers);
   otherScooters.shift();
@@ -32,7 +36,7 @@ function ResultsScreen({ onNavigate }: { onNavigate: () => any }) {
     <div className="flex flex-col items-center">
       {/* Best scooter */}
       <h1 className="text-3xl font-bold text-center px-4">
-        This is your perfect scooter:
+        {T("this-is-your-perfect-scooter")}
       </h1>
       <div className="flex flex-col items-center bg-yellow-300 dark:bg-yellow-400 p-8 rounded-2xl text-black m-4">
         <img
@@ -43,9 +47,9 @@ function ResultsScreen({ onNavigate }: { onNavigate: () => any }) {
         <h3 className="text-xl font-bold">{bestScooter.getFullName()}</h3>
         {getPropertyList(bestScooter)}
       </div>
-      <RoundedButton onClick={onNavigate}>Try again</RoundedButton>
+      <RoundedButton onClick={onNavigate}>{T("try-again")}</RoundedButton>
       <div className="h-8"></div>
-      <h2 className="text-xl font-bold">Other options:</h2>
+      <h2 className="text-xl font-bold">{T("other-options")}</h2>
       <div className="flex flex-row flex-wrap justify-evenly">
         {/* Other scooters */}
         {otherScooters.map((scooter) => {

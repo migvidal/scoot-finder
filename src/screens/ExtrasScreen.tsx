@@ -9,6 +9,7 @@ import {
   faLightbulb,
 } from "@fortawesome/free-solid-svg-icons";
 import NextButton from "../components/NextButton";
+import { useAutocompleteT } from "../i18n/translate";
 
 class ExtrasForm {
   constructor(
@@ -19,23 +20,25 @@ class ExtrasForm {
   ) {}
 }
 
-const extrasFormElements = [
-  new ExtrasForm(Extra.Blinkers, "Blinkers", "checkbox-blinkers", faLightbulb),
-  new ExtrasForm(
-    Extra.CruiseControl,
-    "Cruise control",
-    "checkbox-cruise-control",
-    faGaugeHigh
-  ),
-  new ExtrasForm(Extra.Horn, "Horn", "checkbox-horn", faBullhorn),
-];
-
 function ExtrasScreen({
   onNavigate,
 }: {
   onNavigate: (extras: Set<Extra>) => any;
 }) {
+  const { T } = useAutocompleteT();
   const [extras, setExtras] = useState<Set<Extra>>(new Set());
+  
+  const extrasFormElements = [
+    new ExtrasForm(Extra.Blinkers, T("answers.blinkers"), "checkbox-blinkers", faLightbulb),
+    new ExtrasForm(
+      Extra.CruiseControl,
+      T("answers.cruise-control"),
+      "checkbox-cruise-control",
+      faGaugeHigh
+    ),
+    new ExtrasForm(Extra.Horn, T("answers.horn"), "checkbox-horn", faBullhorn),
+  ];
+
   function onFormSubmit(e: FormEvent) {
     e.preventDefault();
     onNavigate(extras);
@@ -53,7 +56,7 @@ function ExtrasScreen({
   return (
     <div className="flex flex-col items-center">
       <h1 className="text-3xl font-bold text-center px-4">
-        What extra features do you want on your scooter?
+        {T("questions.extra-features-question")}
       </h1>
       <div className="flex flex-row">
         {extrasFormElements.map((e) => (

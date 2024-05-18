@@ -3,8 +3,11 @@ import RoundedButton from "../components/RoundedButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBus } from "@fortawesome/free-solid-svg-icons";
 import NextButton from "../components/NextButton";
+import { useAutocompleteT } from "../i18n/translate";
 
 function SizeScreen({ onNavigate }: { onNavigate: (small: Boolean) => any }) {
+  const { T } = useAutocompleteT();
+
   const [small, setSmall] = useState(false);
   function onFormSubmit(e: FormEvent) {
     e.preventDefault();
@@ -16,7 +19,7 @@ function SizeScreen({ onNavigate }: { onNavigate: (small: Boolean) => any }) {
   return (
     <div className="flex flex-col items-center">
       <h1 className="text-3xl font-bold text-center px-4">
-        Do you plan on bringing the scooter on public transport / your car?
+        {T("questions.public-transport-question")}
       </h1>
       <FontAwesomeIcon className="size-20" icon={faBus} />
       <form onSubmit={onFormSubmit} className="m-4">
@@ -29,8 +32,7 @@ function SizeScreen({ onNavigate }: { onNavigate: (small: Boolean) => any }) {
             onChange={() => onSmallChange(true)}
           />
           <label htmlFor="radio-small-yes">
-            Yes, I'll bring it on public transport / in the trunk of my car
-            often.
+            {T("answers.yes-public-transport")}
           </label>
         </div>
         <div>
@@ -41,9 +43,9 @@ function SizeScreen({ onNavigate }: { onNavigate: (small: Boolean) => any }) {
             checked={!small}
             onChange={() => onSmallChange(false)}
           />
-          <label htmlFor="radio-small-no">No, I don't plan to</label>
+          <label htmlFor="radio-small-no">{T("answers.no-i-dont-plan-to")}</label>
         </div>
-        <NextButton/>
+        <NextButton />
       </form>
     </div>
   );

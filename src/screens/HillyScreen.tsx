@@ -3,12 +3,14 @@ import RoundedButton from "../components/RoundedButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMountain } from "@fortawesome/free-solid-svg-icons";
 import NextButton from "../components/NextButton";
+import { useAutocompleteT } from "../i18n/translate";
 
 function HillyScreen({
   onNavigate,
 }: {
   onNavigate: (isHilly: Boolean) => any;
 }) {
+  const { T } = useAutocompleteT();
   const [isHilly, setIsHilly] = useState(false);
   function onFormSubmit(e: FormEvent) {
     e.preventDefault();
@@ -20,7 +22,7 @@ function HillyScreen({
   return (
     <div className="flex flex-col items-center">
       <h1 className="text-3xl font-bold text-center px-4">
-        Do you live in a hilly area?
+        {T("questions.hilly-area-question")}
       </h1>
       <FontAwesomeIcon className="size-20" icon={faMountain} />
       <form onSubmit={onFormSubmit}>
@@ -32,7 +34,7 @@ function HillyScreen({
             checked={isHilly}
             onChange={() => onHillyChange(true)}
           />
-          <label htmlFor="radio-hilly-yes">Yes</label>
+          <label htmlFor="radio-hilly-yes">{T("answers.yes")}</label>
         </span>
         <span className="m-4">
           <input
@@ -42,9 +44,9 @@ function HillyScreen({
             checked={!isHilly}
             onChange={() => onHillyChange(false)}
           />
-          <label htmlFor="radio-hilly-no">No</label>
+          <label htmlFor="radio-hilly-no">{T("answers.no")}</label>
         </span>
-        <NextButton/>
+        <NextButton />
       </form>
     </div>
   );

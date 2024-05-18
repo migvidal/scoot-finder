@@ -3,12 +3,15 @@ import RoundedButton from "../components/RoundedButton";
 import { faGauge, faGaugeHigh } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NextButton from "../components/NextButton";
+import { useAutocompleteT } from "../i18n/translate";
 
 function SpeedLimitScreen({
   onNavigate,
 }: {
   onNavigate: (wantedSpeedLimit: number) => any;
 }) {
+  const { T } = useAutocompleteT();
+
   const [wantedSpeedLimit, setWantedSpeedLimit] = useState(25);
 
   function onFormSubmit(e: FormEvent) {
@@ -22,12 +25,13 @@ function SpeedLimitScreen({
   return (
     <div className="flex flex-col items-center">
       <h1 className="text-3xl font-bold text-center px-4">
-        At what maximum speed do you want to go?
+        {T("questions.max-speed-question")}
       </h1>
-      <p className="text-gray-500 py-4">
-        Remember to follow national and local laws for the speed limit of PEVs
-      </p>
-      <FontAwesomeIcon className="size-20" icon={wantedSpeedLimit > 25 ? faGaugeHigh : faGauge} />
+      <p className="text-gray-500 py-4">{T("remember-to-follow-laws")}</p>
+      <FontAwesomeIcon
+        className="size-20"
+        icon={wantedSpeedLimit > 25 ? faGaugeHigh : faGauge}
+      />
       <form className="flex flex-col items-center m-8" onSubmit={onFormSubmit}>
         <p>{wantedSpeedLimit + "km/h"}</p>
         <input
@@ -45,7 +49,7 @@ function SpeedLimitScreen({
           <option className="mx-4" value="25" label="EU"></option>
           <option className="mx-2" value="50" label="USA"></option>
         </datalist>
-        <NextButton/>
+        <NextButton />
       </form>
     </div>
   );

@@ -2,6 +2,7 @@ import { FormEvent, useState } from "react";
 import RoundedButton from "../components/RoundedButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMountain } from "@fortawesome/free-solid-svg-icons";
+import NextButton from "../components/NextButton";
 
 function HillyScreen({
   onNavigate,
@@ -43,11 +44,7 @@ function HillyScreen({
           />
           <label htmlFor="radio-hilly-no">No</label>
         </span>
-        <div className="m-8">
-          <RoundedButton onClick={() => {}} type="submit">
-            Next
-          </RoundedButton>
-        </div>
+        <NextButton/>
       </form>
     </div>
   );

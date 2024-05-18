@@ -2,6 +2,7 @@ import { FormEvent, useState } from "react";
 import RoundedButton from "../components/RoundedButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRoad } from "@fortawesome/free-solid-svg-icons";
+import NextButton from "../components/NextButton";
 
 function RoadStateScreen({
   onNavigate,
@@ -46,11 +47,7 @@ function RoadStateScreen({
           />
           <label htmlFor="radio-bumpy-no">Good: smooth, even surface.</label>
         </div>
-        <div className="m-8">
-          <RoundedButton onClick={() => {}} type="submit">
-            Next
-          </RoundedButton>
-        </div>
+        <NextButton/>
       </form>
     </div>
   );

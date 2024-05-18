@@ -3,6 +3,7 @@ import RoundedButton from "../components/RoundedButton";
 import { faPerson } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useAutocompleteT } from "../i18n/translate";
+import NextButton from "../components/NextButton";
 
 function WeightScreen({ onNavigate }: { onNavigate: (weight: number) => any }) {
   const { T } = useAutocompleteT();
@@ -52,11 +53,7 @@ function WeightScreen({ onNavigate }: { onNavigate: (weight: number) => any }) {
             ></FontAwesomeIcon>
           </div>
         </div>
-        <div className="m-8">
-          <RoundedButton onClick={() => {}} type="submit">
-            {T("next")}
-          </RoundedButton>
-        </div>
+        <NextButton/>
       </form>
     </div>
   );

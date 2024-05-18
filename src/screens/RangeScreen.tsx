@@ -2,6 +2,7 @@ import { FormEvent, useState } from "react";
 import RoundedButton from "../components/RoundedButton";
 import { faRoute } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import NextButton from "../components/NextButton";
 
 function RangeScreen({
   onNavigate,
@@ -36,11 +37,7 @@ function RangeScreen({
           value={range}
           onChange={onRangeChange}
         />
-        <div className="m-8">
-          <RoundedButton onClick={() => {}} type="submit">
-            Next
-          </RoundedButton>
-        </div>
+        <NextButton/>
       </form>
     </div>
   );

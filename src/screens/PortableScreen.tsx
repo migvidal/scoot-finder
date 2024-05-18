@@ -2,6 +2,7 @@ import { FormEvent, useState } from "react";
 import RoundedButton from "../components/RoundedButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBus } from "@fortawesome/free-solid-svg-icons";
+import NextButton from "../components/NextButton";
 
 function SizeScreen({ onNavigate }: { onNavigate: (small: Boolean) => any }) {
   const [small, setSmall] = useState(false);
@@ -42,11 +43,7 @@ function SizeScreen({ onNavigate }: { onNavigate: (small: Boolean) => any }) {
           />
           <label htmlFor="radio-small-no">No, I don't plan to</label>
         </div>
-        <div className="m-8">
-          <RoundedButton onClick={() => {}} type="submit">
-            Next
-          </RoundedButton>
-        </div>
+        <NextButton/>
       </form>
     </div>
   );

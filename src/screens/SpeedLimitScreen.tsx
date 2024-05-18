@@ -2,6 +2,7 @@ import { FormEvent, useState } from "react";
 import RoundedButton from "../components/RoundedButton";
 import { faGauge, faGaugeHigh } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import NextButton from "../components/NextButton";
 
 function SpeedLimitScreen({
   onNavigate,
@@ -44,11 +45,7 @@ function SpeedLimitScreen({
           <option className="mx-4" value="25" label="EU"></option>
           <option className="mx-2" value="50" label="USA"></option>
         </datalist>
-        <div className="m-8">
-          <RoundedButton onClick={() => {}} type="submit">
-            Next
-          </RoundedButton>
-        </div>
+        <NextButton/>
       </form>
     </div>
   );

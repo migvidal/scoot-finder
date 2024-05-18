@@ -8,6 +8,7 @@ import {
   faGaugeHigh,
   faLightbulb,
 } from "@fortawesome/free-solid-svg-icons";
+import NextButton from "../components/NextButton";
 
 class ExtrasForm {
   constructor(
@@ -75,11 +76,7 @@ function ExtrasScreen({
             <label htmlFor={e.nameAndId}>{e.label}</label>
           </div>
         ))}
-        <div className="m-8">
-          <RoundedButton onClick={() => {}} type="submit">
-            Finish
-          </RoundedButton>
-        </div>
+        <NextButton/>
       </form>
     </div>
   );

@@ -10,9 +10,8 @@ import RangeScreen from "./screens/RangeScreen";
 import SizeScreen from "./screens/PortableScreen";
 import ExtrasScreen from "./screens/ExtrasScreen";
 import ResultsScreen from "./screens/ResultsScreen";
-import { tr, useT } from "talkr";
-import { useState } from "react";
 import { useAutocompleteT } from "./i18n/translate";
+import Logo from "./components/Logo";
 
 function RouterWrapper() {
   const navigate = useNavigate();
@@ -46,10 +45,8 @@ function RouterWrapper() {
   return (
     <div className="max-w-2xl">
       <div className="m-4 flex justify-between items-center">
-        <Link
-          to={ROOT_SEGMENT}
-        >
-          <img src="/src/assets/icons/logo.svg" alt="ScootFinder" className="w-16" />
+        <Link to={ROOT_SEGMENT}>
+          <Logo />
         </Link>
         <div>
           <button

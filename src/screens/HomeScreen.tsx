@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import RoundedButton from "../components/RoundedButton";
 import { useT } from "talkr";
 import { useAutocompleteT } from "../i18n/translate";
+import ExtendedLogo from "../components/ExtendedLogo";
 
 function HomeScreen({ children }: { children: ReactNode }) {
   const { T } = useAutocompleteT();
@@ -13,11 +14,7 @@ function HomeScreen({ children }: { children: ReactNode }) {
           {T("find-your-perfect-scooter")}
           <span className="text-yellow-600">!</span>
         </h1>
-        <img
-          src="/src/assets/icons/extended-logo.svg"
-          alt="ScootFinder"
-          className=""
-        />
+        <ExtendedLogo />
       </div>
       <div className="py-10"></div>
       {children}

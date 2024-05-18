@@ -8,10 +8,17 @@ function HomeScreen({ children }: { children: ReactNode }) {
 
   return (
     <div className="flex flex-col items-center">
-      <h1 className="text-6xl font-bold text-center px-4">
-        {T("find-your-perfect-scooter")}
-        <span className="text-yellow-600">!</span>
-      </h1>
+      <div className="w-full flex flex-wrap">
+        <h1 className="text-6xl font-bold px-4 text-left max-w-sm">
+          {T("find-your-perfect-scooter")}
+          <span className="text-yellow-600">!</span>
+        </h1>
+        <img
+          src="/src/assets/icons/extended-logo.svg"
+          alt="ScootFinder"
+          className=""
+        />
+      </div>
       <div className="py-10"></div>
       {children}
     </div>

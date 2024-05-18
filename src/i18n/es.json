@@ -1,3 +1,33 @@
 {
-    "find-your-perfect-scooter": "Encuentra tu patinete perfecto"
+    "find-your-perfect-scooter": "Encuentra tu patinete perfecto",
+    "begin": "Comenzar",
+    "next": "Siguiente",
+    "remember-to-follow-laws": "Recuerda seguir las leyes nacionales y locales sobre la velocidad de VMPs",
+    "this-is-your-perfect-scooter": "Este es tu patinete eléctrico perfecto:",
+    "can-climb-hills": "Can climb hills",
+    "portable": "Portátil",
+    "max-supported-weight": "Peso máximo soportado:",
+    "max-speed": "Velocidad máxima:",
+    "try-again": "Volver a intentar",
+    "other-options": "Otras opciones",
+    "questions": {
+        "how-much-do-you-weigh": "Cuánto pesas?",
+        "hilly-area-question": "Vives en una zona con cuestas?",
+        "extra-features-question": "Qué funciones extra quieres en tu patinete?",
+        "road-condition": "Cuál es el estado de las carreteras en tu zona?",
+        "public-transport-question": "Planeas llevar el patinete en transporte público/tu coche?",
+        "max-speed-question": "A qué velocidad máxima quieres ir?",
+        "range-question": "Cuanta autonomía necesitas?"
+    },
+    "answers": {
+        "yes": "Sí",
+        "no": "No",
+        "yes-public-transport": "Sí, voy a llevarlo en transporte público / en mi maletero a menudo.",
+        "no-i-dont-plan-to": "No, no lo planeo",
+        "blinkers": "Intermitentes",
+        "cruise-control": "Control de crucero",
+        "horn": "Claxon",
+        "poor-uneven-bumpy": "Malo: firme, irregular; baches...",
+        "good-smooth-even": "Bueno: superficie lisa"
+    }
 }

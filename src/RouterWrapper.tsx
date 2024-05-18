@@ -12,10 +12,11 @@ import ExtrasScreen from "./screens/ExtrasScreen";
 import ResultsScreen from "./screens/ResultsScreen";
 import { tr, useT } from "talkr";
 import { useState } from "react";
+import { useAutocompleteT } from "./i18n/translate";
 
 function RouterWrapper() {
   const navigate = useNavigate();
-  const { T, setLocale, locale } = useT();
+  const { T, setLocale, locale } = useAutocompleteT();
 
   const ROOT_SEGMENT = "/";
 

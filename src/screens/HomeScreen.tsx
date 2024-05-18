@@ -1,9 +1,10 @@
 import { ReactNode } from "react";
 import RoundedButton from "../components/RoundedButton";
 import { useT } from "talkr";
+import { useAutocompleteT } from "../i18n/translate";
 
 function HomeScreen({ children }: { children: ReactNode }) {
-  const { T } = useT();
+  const { T } = useAutocompleteT();
 
   return (
     <div className="flex flex-col items-center">

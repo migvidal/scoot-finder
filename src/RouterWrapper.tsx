@@ -43,7 +43,7 @@ function RouterWrapper() {
   const RESULTS_SEGMENT = "results";
 
   return (
-    <div className="max-w-2xl">
+    <div className="max-w-2xl m-2">
       <div className="m-4 flex justify-between items-center">
         <Link to={ROOT_SEGMENT}>
           <Logo className="size-16" />

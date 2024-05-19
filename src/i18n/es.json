@@ -1,5 +1,5 @@
 {
-    "find-your-perfect-scooter": "Encuentra tu patinete perfecto",
+    "find-your-perfect-scooter": "¡Encuentra tu patinete perfecto",
     "begin": "Comenzar",
     "next": "Siguiente",
     "remember-to-follow-laws": "Recuerda seguir las leyes nacionales y locales sobre la velocidad de VMPs",
@@ -11,13 +11,13 @@
     "try-again": "Volver a intentar",
     "other-options": "Otras opciones",
     "questions": {
-        "how-much-do-you-weigh": "Cuánto pesas?",
-        "hilly-area-question": "Vives en una zona con cuestas?",
-        "extra-features-question": "Qué funciones extra quieres en tu patinete?",
-        "road-condition": "Cuál es el estado de las carreteras en tu zona?",
-        "public-transport-question": "Planeas llevar el patinete en transporte público/tu coche?",
-        "max-speed-question": "A qué velocidad máxima quieres ir?",
-        "range-question": "Cuanta autonomía necesitas?"
+        "how-much-do-you-weigh": "¿Cuánto pesas?",
+        "hilly-area-question": "¿Vives en una zona con cuestas?",
+        "extra-features-question": "¿Qué funciones extra quieres en tu patinete?",
+        "road-condition": "¿Cuál es el estado de las carreteras en tu zona?",
+        "public-transport-question": "¿Planeas llevar el patinete en transporte público/tu coche?",
+        "max-speed-question": "¿A qué velocidad máxima quieres ir?",
+        "range-question": "¿Cuanta autonomía necesitas?"
     },
     "answers": {
         "yes": "Sí",

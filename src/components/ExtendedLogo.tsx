@@ -12,8 +12,8 @@ export default function ExtendedLogo({ className }: { className: string }) {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M25.799 13.875V16.085H35.863C37.121 16.085 38.0957 15.7733 38.787 15.15C39.4897 14.5267 39.841 13.6143 39.841 12.413C39.841 11.2003 39.4897 10.288 38.787 9.67601C38.0957 9.05268 37.121 8.74101 35.863 8.74101H29.777C29.2897 8.74101 28.91 8.63334 28.638 8.41801C28.366 8.19134 28.23 7.83434 28.23 7.34701C28.23 6.85968 28.366 6.50834 28.638 6.29301C28.91 6.06634 29.2897 5.95301 29.777 5.95301L36 5.96443V5.00001H39.042V3.76001H29.488C28.23 3.76001 27.2497 4.06601 26.547 4.67801C25.8557 5.27868 25.51 6.16834 25.51 7.34701C25.51 8.52568 25.8557 9.42101 26.547 10.033C27.2497 10.6337 28.23 10.934 29.488 10.934H35.574C36.0727 10.934 36.4523 11.053 36.713 11.291C36.985 11.5177 37.121 11.8917 37.121 12.413C37.121 12.9343 36.985 13.314 36.713 13.552C36.4523 13.7787 36.0727 13.892 35.574 13.892L25.799 13.875Z"
         className={fillClassName}
       />
@@ -25,30 +25,30 @@ export default function ExtendedLogo({ className }: { className: string }) {
         <path
           d="M32.375 45.375C34.2907 45.375 35.8438 43.822 35.8438 41.9062C35.8438 39.9905 34.2907 38.4375 32.375 38.4375C30.4593 38.4375 28.9062 39.9905 28.9062 41.9062C28.9062 43.822 30.4593 45.375 32.375 45.375Z"
           className={strokeClassName}
-          stroke-width="2"
-          stroke-miterlimit="10"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeMiterlimit="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M4.625 45.375C6.54074 45.375 8.09375 43.822 8.09375 41.9062C8.09375 39.9905 6.54074 38.4375 4.625 38.4375C2.70926 38.4375 1.15625 39.9905 1.15625 41.9062C1.15625 43.822 2.70926 45.375 4.625 45.375Z"
           className={strokeClassName}
-          stroke-width="2"
-          stroke-miterlimit="10"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeMiterlimit="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M30.0625 32.6562L24.2812 41.9062H4.625"
           className={strokeClassName}
-          stroke-width="2"
-          stroke-miterlimit="10"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeMiterlimit="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M26.774 19L31.3944 42.1024C31.5027 42.6439 32.0296 42.9951 32.5711 42.8868C33.1127 42.7785 33.4639 42.2517 33.3556 41.7101L28.9698 19.7812H38C38.5523 19.7812 39 19.3335 39 18.7812C39 18.229 38.5523 17.7812 38 17.7812H29V19H26.774Z"
           className={fillClassName}
         />

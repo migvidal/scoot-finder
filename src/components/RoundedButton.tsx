@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-function RoundedButton({
+export default function RoundedButton({
   onClick,
   type,
   children,
@@ -19,4 +19,3 @@ function RoundedButton({
     </button>
   );
 }
-export default RoundedButton;

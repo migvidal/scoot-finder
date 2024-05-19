@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NextButton from "../components/NextButton";
 import { useAutocompleteT } from "../i18n/translate";
 
-function SpeedLimitScreen({
+export default function SpeedLimitScreen({
   onNavigate,
 }: {
   onNavigate: (wantedSpeedLimit: number) => any;
@@ -54,4 +54,3 @@ function SpeedLimitScreen({
     </div>
   );
 }
-export default SpeedLimitScreen;

@@ -13,7 +13,7 @@ import ResultsScreen from "./screens/ResultsScreen";
 import { useAutocompleteT } from "./i18n/translate";
 import Logo from "./components/Logo";
 
-function RouterWrapper() {
+export default function RouterWrapper() {
   const navigate = useNavigate();
   const { T, setLocale, locale } = useAutocompleteT();
 
@@ -198,4 +198,3 @@ function RouterWrapper() {
     </div>
   );
 }
-export default RouterWrapper;

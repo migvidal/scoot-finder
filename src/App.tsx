@@ -5,7 +5,7 @@ import { Talkr } from "talkr";
 import en from "./i18n/en.json";
 import es from "./i18n/es.json";
 
-function App() {
+export default function App() {
   const [currentSpanish, setSpanish] = useState(false);
   return (
     <Talkr languages={{ en, es }} defaultLanguage={"en"}>
@@ -15,5 +15,3 @@ function App() {
     </Talkr>
   );
 }
-
-export default App;

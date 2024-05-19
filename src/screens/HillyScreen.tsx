@@ -5,7 +5,7 @@ import { faMountain } from "@fortawesome/free-solid-svg-icons";
 import NextButton from "../components/NextButton";
 import { useAutocompleteT } from "../i18n/translate";
 
-function HillyScreen({
+export default function HillyScreen({
   onNavigate,
 }: {
   onNavigate: (isHilly: Boolean) => any;
@@ -51,4 +51,3 @@ function HillyScreen({
     </div>
   );
 }
-export default HillyScreen;

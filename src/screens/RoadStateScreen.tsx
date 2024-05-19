@@ -5,7 +5,7 @@ import { faRoad } from "@fortawesome/free-solid-svg-icons";
 import NextButton from "../components/NextButton";
 import { useAutocompleteT } from "../i18n/translate";
 
-function RoadStateScreen({
+export default function RoadStateScreen({
   onNavigate,
 }: {
   onNavigate: (bumpyRoads: Boolean) => any;
@@ -57,4 +57,3 @@ function RoadStateScreen({
     </div>
   );
 }
-export default RoadStateScreen;

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NextButton from "../components/NextButton";
 import { useAutocompleteT } from "../i18n/translate";
 
-function RangeScreen({
+export default function RangeScreen({
   onNavigate,
 }: {
   onNavigate: (range: number) => any;
@@ -45,4 +45,3 @@ function RangeScreen({
     </div>
   );
 }
-export default RangeScreen;

@@ -5,7 +5,7 @@ import { Scooter, calculateResult } from "../Scooters";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { useAutocompleteT } from "../i18n/translate";
 
-function getPropertyList(scooter: Scooter): JSX.Element {
+export default function getPropertyList(scooter: Scooter): JSX.Element {
   const { T } = useAutocompleteT();
   const propertiesAsStrings = [
     scooter.performantUphill ? T("can-climb-hills") : null,
@@ -71,4 +71,3 @@ function ResultsScreen({ onNavigate }: { onNavigate: () => any }) {
     </div>
   );
 }
-export default ResultsScreen;

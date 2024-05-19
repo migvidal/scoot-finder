@@ -4,7 +4,7 @@ import { useT } from "talkr";
 import { useAutocompleteT } from "../i18n/translate";
 import ExtendedLogo from "../components/ExtendedLogo";
 
-function HomeScreen({ children }: { children: ReactNode }) {
+export default function HomeScreen({ children }: { children: ReactNode }) {
   const { T } = useAutocompleteT();
 
   return (
@@ -24,4 +24,3 @@ function HomeScreen({ children }: { children: ReactNode }) {
     </div>
   );
 }
-export default HomeScreen;

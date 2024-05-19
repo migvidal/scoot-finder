@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useAutocompleteT } from "../i18n/translate";
 import NextButton from "../components/NextButton";
 
-function WeightScreen({ onNavigate }: { onNavigate: (weight: number) => any }) {
+export default function WeightScreen({ onNavigate }: { onNavigate: (weight: number) => any }) {
   const { T } = useAutocompleteT();
   const [weight, setWeight] = useState(60);
   const personIconStyle = {
@@ -58,4 +58,3 @@ function WeightScreen({ onNavigate }: { onNavigate: (weight: number) => any }) {
     </div>
   );
 }
-export default WeightScreen;

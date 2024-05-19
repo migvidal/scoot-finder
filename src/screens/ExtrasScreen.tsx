@@ -20,7 +20,7 @@ class ExtrasForm {
   ) {}
 }
 
-function ExtrasScreen({
+export default function ExtrasScreen({
   onNavigate,
 }: {
   onNavigate: (extras: Set<Extra>) => any;
@@ -84,4 +84,3 @@ function ExtrasScreen({
     </div>
   );
 }
-export default ExtrasScreen;

@@ -5,7 +5,7 @@ import { faBus } from "@fortawesome/free-solid-svg-icons";
 import NextButton from "../components/NextButton";
 import { useAutocompleteT } from "../i18n/translate";
 
-function SizeScreen({ onNavigate }: { onNavigate: (small: Boolean) => any }) {
+export default function SizeScreen({ onNavigate }: { onNavigate: (small: Boolean) => any }) {
   const { T } = useAutocompleteT();
 
   const [small, setSmall] = useState(false);
@@ -50,4 +50,3 @@ function SizeScreen({ onNavigate }: { onNavigate: (small: Boolean) => any }) {
     </div>
   );
 }
-export default SizeScreen;

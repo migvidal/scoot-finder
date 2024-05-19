@@ -195,6 +195,12 @@ export default function RouterWrapper() {
           element={<ResultsScreen onNavigate={() => navigate(ROOT_SEGMENT)} />}
         ></Route>
       </Routes>
+      <footer className="text-center relative bottom-0 left-0 right-0 my-10">
+        <span>Created with ♥️ by </span>
+        <a href="http://migvidal.com" className="text-blue-700">
+          Migvidal
+        </a>
+      </footer>
     </div>
   );
 }

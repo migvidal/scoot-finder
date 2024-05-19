@@ -1,7 +1,7 @@
 export default function ExtendedLogo({ className }: { className: string }) {
-  const fillClassName = "fill-yellow-600";
-  const strokeClassName = "stroke-yellow-600";
-  const negativeFillClassName = "fill-yellow-600";
+  const fillClassName = "fill-yellow-400";
+  const strokeClassName = "stroke-yellow-400";
+  const negativeFillClassName = "fill-yellow-400";
   return (
     <svg
       className={className}

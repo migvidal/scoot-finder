@@ -44,7 +44,7 @@ export default function RouterWrapper() {
 
   return (
     <div className="max-w-2xl m-2">
-      <div className="m-4 flex justify-between items-center">
+      <header className="m-4 flex justify-between items-center">
         <Link to={ROOT_SEGMENT}>
           <Logo className="size-16" />
         </Link>
@@ -63,7 +63,7 @@ export default function RouterWrapper() {
             ES
           </button>
         </div>
-      </div>
+      </header>
       <Routes>
         <Route
           path={ROOT_SEGMENT}

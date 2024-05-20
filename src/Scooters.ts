@@ -16,7 +16,7 @@ export class Scooter {
     public extras: Set<Extra> = new Set()
   ) {}
   getFullName = () => this.brand + " " + this.model;
-  getImgPath = () => "/src/assets/scooters/" + this.imgName;
+  getImgPath = () => "assets/scooters/" + this.imgName;
 }
 
 const scooters = [

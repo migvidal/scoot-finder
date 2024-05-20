@@ -1,5 +1,4 @@
 import { FormEvent, useState } from "react";
-import RoundedButton from "../components/RoundedButton";
 import { faGauge, faGaugeHigh } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NextButton from "../components/NextButton";

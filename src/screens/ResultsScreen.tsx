@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { AnswersState, currentAnswers } from "../AnswersState";
+import { currentAnswers } from "../AnswersState";
 import RoundedButton from "../components/RoundedButton";
 import { Scooter, calculateResult } from "../Scooters";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
@@ -47,7 +47,7 @@ export default function ResultsScreen({ onNavigate }: { onNavigate: () => any })
         <h3 className="text-xl font-bold">{bestScooter.getFullName()}</h3>
         {getPropertyList(bestScooter)}
       </div>
-      <RoundedButton onClick={onNavigate}>{T("try-again")}</RoundedButton>
+      <RoundedButton type="button" onClick={onNavigate}>{T("try-again")}</RoundedButton>
       <div className="h-8"></div>
       <h2 className="text-xl font-bold">{T("other-options")}</h2>
       <div className="flex flex-row flex-wrap justify-evenly">

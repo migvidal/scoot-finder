@@ -194,7 +194,7 @@ export function calculateResult(answersState: AnswersState): Scooter[] {
     return scooter.portable === answersState.mustBePortable;
   });
   const powerful = scooters.filter((scooter) => {
-    return scooter.canGoUphill === answersState.hillyArea;
+    return scooter.performantUphill === answersState.hillyArea;
   });
   const withSuspension = scooters.filter((scooter) => {
     return scooter.suspension === answersState.bumpyRoads!;

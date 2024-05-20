@@ -1,5 +1,4 @@
-import { FormEvent, useEffect, useState } from "react";
-import RoundedButton from "../components/RoundedButton";
+import { FormEvent, useState } from "react";
 import { faPerson } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useAutocompleteT } from "../i18n/translate";

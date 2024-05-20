@@ -1,6 +1,4 @@
 import { ReactNode } from "react";
-import RoundedButton from "../components/RoundedButton";
-import { useT } from "talkr";
 import { useAutocompleteT } from "../i18n/translate";
 import ExtendedLogo from "../components/ExtendedLogo";
 
